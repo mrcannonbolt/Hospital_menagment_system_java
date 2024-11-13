@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * JavaFX App
@@ -17,8 +20,21 @@ public class App extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 640, 480);
-        Patient marek = new Patient(1, "Marek", 10, 1);
-        marek.displayInfo();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
+        try
+        {
+            Date date1 = sdf1.parse("2001.02.02");
+            Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232",Patient_status.CRITICAL_CONDITION);
+            marek.displayInfo();
+        }
+        catch (ParseException e) 
+        {
+            e.printStackTrace();
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("dupa");
+        }
         stage.setScene(scene);
         stage.show();
     }
