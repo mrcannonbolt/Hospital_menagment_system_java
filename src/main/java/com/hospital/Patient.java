@@ -1,10 +1,10 @@
 package com.hospital;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Patient extends HospitalEntity{
+
     private Gender gender;
     private String PESEL;
     private Date date_of_birth;
@@ -89,7 +89,6 @@ public class Patient extends HospitalEntity{
 
     public void displayInfo()
     {
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println(String.format(
             "Informacje o pacjencie:\n" +
             "Imię: %s\n" +
@@ -97,7 +96,7 @@ public class Patient extends HospitalEntity{
             "Data urodzenia: %s\n" +
             "PESEL: %s\n" +
             "Status zdrowia pacjenta: %s",
-            name, gender, sdf1.format(date_of_birth), PESEL, patient_status
+            name, gender, DATE_FORMAT.format(date_of_birth), PESEL, patient_status
         ));
         
     }

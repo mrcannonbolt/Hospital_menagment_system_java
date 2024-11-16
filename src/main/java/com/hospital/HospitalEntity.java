@@ -1,9 +1,12 @@
 package com.hospital;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 // Klasa abstrakcyjna, która definiuje ogólne metody dla jednostek w systemie szpitalnym
 public abstract class HospitalEntity{
+
+    protected static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     protected int id;
     protected String name;
     protected Date date = new Date();

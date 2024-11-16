@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -24,8 +26,21 @@ public class App extends Application{
         try
         {
             Date date1 = sdf1.parse("2001.02.02");
+            Staff doctor = new Staff(1,"Dr. House");
+            Medicament med1= new Medicament(0, "Apap extra");
+            Medicament med2= new Medicament(0, "ibuprom");
+
+            Map<Medicament, Integer> medicamentMap = new HashMap<>();
+            medicamentMap.put(med1, 2);
+            medicamentMap.put(med2, 1);
+
             Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232",Patient_status.CRITICAL_CONDITION);
+            Prescription prescription1 = new Prescription(0, "precsription1", doctor, medicamentMap);
+
+
             marek.displayInfo();
+            System.out.println("\n");
+            prescription1.displayInfo();
         }
         catch (ParseException e) 
         {
