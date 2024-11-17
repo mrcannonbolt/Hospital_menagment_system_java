@@ -78,8 +78,9 @@ public class Patient extends HospitalEntity{
         medical_history.add(entry);
     }
 
-    public List<Prescription> getPrescriptions() {
-        return prescriptions;
+    public void getPrescriptions() {
+        for(Prescription prescription:prescriptions)
+            prescription.displayInfo();
     }
 
 

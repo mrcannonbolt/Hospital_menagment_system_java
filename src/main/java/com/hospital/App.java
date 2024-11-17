@@ -36,11 +36,11 @@ public class App extends Application{
 
             Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232",Patient_status.CRITICAL_CONDITION);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor, medicamentMap);
-
+            marek.addPrescrition(prescription1);
+            marek.addPrescrition(prescription1);
 
             marek.displayInfo();
-            System.out.println("\n");
-            prescription1.displayInfo();
+            marek.getPrescriptions();
         }
         catch (ParseException e) 
         {
