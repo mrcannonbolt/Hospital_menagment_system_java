@@ -2,7 +2,7 @@ package com.hospital;
 
 public enum Gender {
     WOMAN("Kobieta"),
-    MAN("Mężczyna");
+    MAN("Mężczyzna");
 
     private final String value;
 

@@ -2,9 +2,19 @@ package com.hospital;
 
 public class Medicament extends HospitalEntity{
 
-    public Medicament(int id,String name)
+    private Type_of_medicament typeOfMedicament;
+    public Medicament(int id,String name, Type_of_medicament typeOfMedicament)
     {
         super(id, name);
+        this.typeOfMedicament =typeOfMedicament;
+    }
+
+    public void setTypeOfMedicament(Type_of_medicament typeOfMedicament) {
+        this.typeOfMedicament = typeOfMedicament;
+    }
+
+    public Type_of_medicament getTypeOfMedicament() {
+        return typeOfMedicament;
     }
 
     public void displayInfo()

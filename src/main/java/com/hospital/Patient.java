@@ -84,7 +84,7 @@ public class Patient extends HospitalEntity{
     }
 
 
-    public void addPrescrition(Prescription entry) {
+    public void addPrescription(Prescription entry) {
         prescriptions.add(entry);
     }
 
