@@ -1,4 +1,6 @@
-package com.hospital;
+package com.hospital.Medicaments_and_Equipment;
+
+import com.hospital.HospitalEntity;
 
 public class Medicament extends HospitalEntity{
 

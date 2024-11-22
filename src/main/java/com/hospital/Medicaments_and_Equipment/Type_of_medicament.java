@@ -1,4 +1,4 @@
-package com.hospital;
+package com.hospital.Medicaments_and_Equipment;
 
 public enum Type_of_medicament {
     SYRUP("Syrop"),

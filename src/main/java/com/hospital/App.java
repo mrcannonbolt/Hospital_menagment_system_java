@@ -9,6 +9,20 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.hospital.Medicaments_and_Equipment.Medicament;
+import com.hospital.Medicaments_and_Equipment.Prescription;
+import com.hospital.Medicaments_and_Equipment.Type_of_medicament;
+import com.hospital.Space_Availability.Bed;
+import com.hospital.Space_Availability.Department;
+import com.hospital.Space_Availability.Room;
+import com.hospital.Staff_and_patients.Gender;
+import com.hospital.Staff_and_patients.LoginSystem;
+import com.hospital.Staff_and_patients.Patient;
+import com.hospital.Staff_and_patients.Patient_status;
+import com.hospital.Staff_and_patients.Staff;
+import com.hospital.Staff_and_patients.Staff_positions;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -34,8 +48,8 @@ public class App extends Application{
             if (loggedInStaff != null) {
                 loggedInStaff.displayInfo();
             }
-            Medicament med1= new Medicament(0, "Apap extra",Type_of_medicament.TABLETS);
-            Medicament med2= new Medicament(0, "Ibuprom",Type_of_medicament.INJECTION);
+            Medicament med1= new Medicament(2, "Apap extra",Type_of_medicament.TABLETS);
+            Medicament med2= new Medicament(3, "Ibuprom",Type_of_medicament.INJECTION);
 
 
             Map<Medicament, Integer> medicamentMap = new HashMap<>();
@@ -45,12 +59,31 @@ public class App extends Application{
             Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232",Patient_status.CRITICAL_CONDITION);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor, medicamentMap);
             marek.addPrescription(prescription1);
-            marek.addPrescription(prescription1);
             marek.displayInfo();
             marek.getPrescriptions();
             doctor.displayInfo();
+
+            /////////////////////////////////// testy sale ///////////////////////////////////////////////
+            Bed bed1= new Bed(1,"1");
+            Bed bed2= new Bed(2,"2");
+            Bed bed3= new Bed(3,"3");
+
+            Room room1 = new Room(1, "101");
+            Room room2 = new Room(2,"102");
+            Department department1 = new Department(1, "Kardiologia");
+            
+            department1.addRoom(room1);
+            department1.addRoom(room2);
+            room1.addBed(bed1);
+            room1.addBed(bed2);
+            room2.addBed(bed3);
+            bed1.assignPatient(marek);
+
+            System.out.println("\n");
+            department1.displayInfo();
+
         }
-        catch (ParseException e) 
+        catch (ParseException e)
         {
             e.printStackTrace();
         }

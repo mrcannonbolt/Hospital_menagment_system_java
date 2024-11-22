@@ -1,6 +1,8 @@
-package com.hospital;
+package com.hospital.Staff_and_patients;
 
 import java.util.Date;
+
+import com.hospital.HospitalEntity;
 
 public class Staff extends HospitalEntity{
 

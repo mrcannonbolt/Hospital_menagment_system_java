@@ -1,4 +1,4 @@
-package com.hospital;
+package com.hospital.Staff_and_patients;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,10 +23,13 @@ public class LoginSystem {
         Staff staff = staffAccounts.get(login);
         if (staff != null && staff.authorization(password)) {
             System.out.println("Zalogowano pomyślnie jako: " + staff.getName());
+            scanner.close();
             return null;
         } else {
             System.out.println("Nieprawidłowy login lub hasło.");
+            scanner.close();
             return null;
         }
+        
     }
 }

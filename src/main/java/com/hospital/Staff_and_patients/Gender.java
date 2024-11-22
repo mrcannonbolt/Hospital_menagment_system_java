@@ -1,4 +1,4 @@
-package com.hospital;
+package com.hospital.Staff_and_patients;
 
 public enum Gender {
     WOMAN("Kobieta"),

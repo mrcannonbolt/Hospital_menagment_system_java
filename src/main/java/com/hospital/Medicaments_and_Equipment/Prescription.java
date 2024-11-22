@@ -1,4 +1,4 @@
-package com.hospital;
+package com.hospital.Medicaments_and_Equipment;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.List;
 import java.util.Calendar;
 import java.util.concurrent.ThreadLocalRandom;
+
+import com.hospital.HospitalEntity;
+import com.hospital.Staff_and_patients.Staff;
 
 public class Prescription extends HospitalEntity {
 
