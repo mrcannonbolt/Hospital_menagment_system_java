@@ -10,6 +10,7 @@ public class Room extends HospitalEntity{
 
     List<Bed> beds;
     List<Equipment> equipments;
+    int capacity;
 
     public Room(int id,String name)
     {
