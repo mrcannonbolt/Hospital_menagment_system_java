@@ -27,7 +27,7 @@ public class LoginSystem {
 
             if (staff != null && staff.authorization(password)) {
                 System.out.println("Zalogowano pomyślnie jako: " + staff.getName());
-                break; // przerywa pętlę po pomyślnym logowaniu
+                break;
             } else {
                 System.out.println("Nieprawidłowy login lub hasło. Spróbuj ponownie.");
             }

@@ -2,8 +2,8 @@ package com.hospital;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Date;
@@ -27,11 +27,14 @@ import java.text.SimpleDateFormat;
 
 public class App extends Application{
 
-    private static Scene scene;
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MainScene.fxml"));
+        StackPane stackPane = fxmlLoader.load();
+        Scene scene = new Scene(stackPane, 700, 700);
+        stage.setTitle("Aplikacja szpitala");
+        stage.setScene(scene);
+        stage.show();
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
         try
         {
@@ -67,7 +70,7 @@ public class App extends Application{
             Room room1 = new Room(1, "101");
             Room room2 = new Room(2,"102");
             Department department1 = new Department(1, "Kardiologia");
-            
+
             department1.addRoom(room1);
             department1.addRoom(room2);
             room1.addBed(bed1);
@@ -89,15 +92,6 @@ public class App extends Application{
         }
         stage.setScene(scene);
         stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
     }
 
     public static void main(String[] args) {

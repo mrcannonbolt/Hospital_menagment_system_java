@@ -53,7 +53,7 @@ public class Patient extends Person {
             "Data urodzenia: %s\n" +
             "PESEL: %s\n" +
             "Status zdrowia pacjenta: %s",
-            name, gender, DATE_FORMAT.format(dateOfBirth),pesel, medicalHistory
+            name, gender, DATE_FORMAT.format(dateOfBirth),pesel, patientStatus
         ));
         
     }
