@@ -13,41 +13,41 @@ import com.hospital.Staff_and_patients.Staff;
 public class Prescription extends HospitalEntity {
 
     private Map<Medicament, Integer> medicaments;
-    private List<Integer> pickup_codes_list= new ArrayList<>();
-    private Integer pickup_code;
+    private List<Integer> pickupCodesList= new ArrayList<>();
+    private Integer pickupCode;
     private Staff issuingDoctor;
-    private Date expiration_date;
+    private Date expirationDate;
 
     public Prescription(int id, String name, Staff issuingDoctor, Map<Medicament, Integer> medicaments) {
         super(id, name);
         this.medicaments = medicaments;
         this.issuingDoctor = issuingDoctor;
-        this.expiration_date = calculateExpirationDate(date, 60);
-        this.pickup_code = assignPickupCode();
+        this.expirationDate = calculateExpirationDate(date, 60);
+        this.pickupCode = assignPickupCode();
     }
 
-    private Date calculateExpirationDate(Date date, int days_to_add) {
+    private Date calculateExpirationDate(Date date, int daysToAdd) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_YEAR, days_to_add);
+        calendar.add(Calendar.DAY_OF_YEAR, daysToAdd);
         return calendar.getTime();
     }
 
     private Integer assignPickupCode() {
-        Integer assign_number;
+        Integer assignNumber;
         do
         {
-            assign_number=ThreadLocalRandom.current().nextInt(100000, 999999);
+            assignNumber=ThreadLocalRandom.current().nextInt(100000, 999999);
         }
-        while(pickup_codes_list.contains(assign_number));
-        return assign_number;
+        while(pickupCodesList.contains(assignNumber));
+        return assignNumber;
     }
 
     public void displayInfo() {
         System.out.println("\n" +"Doktor wystawiający: " + issuingDoctor);
         System.out.println("Data wystawienia: " + DATE_FORMAT.format(date));
-        System.out.println("Data ważności recepty: " + DATE_FORMAT.format(expiration_date));
-        System.out.println("Kod odbioru: "+ pickup_code);
+        System.out.println("Data ważności recepty: " + DATE_FORMAT.format(expirationDate));
+        System.out.println("Kod odbioru: "+ pickupCode);
         System.out.println("Lista leków na recepcie:");
         for (Map.Entry<Medicament, Integer> entry : medicaments.entrySet()) {
             Medicament medicament = entry.getKey();

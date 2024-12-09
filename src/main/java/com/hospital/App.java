@@ -12,23 +12,19 @@ import java.util.Map;
 
 import com.hospital.Medicaments_and_Equipment.Medicament;
 import com.hospital.Medicaments_and_Equipment.Prescription;
-import com.hospital.Medicaments_and_Equipment.Type_of_medicament;
+import com.hospital.Medicaments_and_Equipment.TypeOfMedicament;
 import com.hospital.Space_Availability.Bed;
 import com.hospital.Space_Availability.Department;
 import com.hospital.Space_Availability.Room;
 import com.hospital.Staff_and_patients.Gender;
 import com.hospital.Staff_and_patients.LoginSystem;
 import com.hospital.Staff_and_patients.Patient;
-import com.hospital.Staff_and_patients.Patient_status;
+import com.hospital.Staff_and_patients.PatientStatus;
 import com.hospital.Staff_and_patients.Staff;
-import com.hospital.Staff_and_patients.Staff_positions;
-
+import com.hospital.Staff_and_patients.StaffPositions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-/**
- * JavaFX App
- */
 public class App extends Application{
 
     private static Scene scene;
@@ -41,22 +37,22 @@ public class App extends Application{
         {
             Date date1 = sdf1.parse("2001.02.02");
             Date date2 = sdf1.parse("1992.06.02");
-            Staff doctor = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2,Staff_positions.DOCTOR,"qwerty","qwerty");
+            Staff doctor = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2, StaffPositions.DOCTOR,"qwerty","qwerty");
             LoginSystem loginSystem = new LoginSystem();
             loginSystem.registerStaff(doctor);
             Staff loggedInStaff = loginSystem.login();
             if (loggedInStaff != null) {
                 loggedInStaff.displayInfo();
             }
-            Medicament med1= new Medicament(2, "Apap extra",Type_of_medicament.TABLETS);
-            Medicament med2= new Medicament(3, "Ibuprom",Type_of_medicament.INJECTION);
+            Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
+            Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
 
 
             Map<Medicament, Integer> medicamentMap = new HashMap<>();
             medicamentMap.put(med1, 2);
             medicamentMap.put(med2, 1);
 
-            Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232",Patient_status.CRITICAL_CONDITION);
+            Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232", PatientStatus.CRITICAL_CONDITION);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor, medicamentMap);
             marek.addPrescription(prescription1);
             marek.displayInfo();

@@ -1,6 +1,6 @@
 package com.hospital.Staff_and_patients;
 
-public enum Staff_positions {
+public enum StaffPositions {
     DOCTOR("Lekarz"),
     NURSE("Pielęgniarka"),
     SECRETARY("Sekretarka"),
@@ -11,7 +11,7 @@ public enum Staff_positions {
 
     private final String value;
 
-    Staff_positions(String value) {
+    StaffPositions(String value) {
         this.value = value;
     }
 

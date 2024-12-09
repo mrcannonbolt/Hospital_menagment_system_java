@@ -3,89 +3,42 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.hospital.HospitalEntity;
 import com.hospital.Medicaments_and_Equipment.Prescription;
 
-public class Patient extends HospitalEntity{
+public class Patient extends Person {
 
-    private Gender gender;
-    private String PESEL;
-    private Date date_of_birth;
-    private Patient_status patient_status;
-    private List<String> medical_history;
+    private PatientStatus patientStatus;
+    private List<String> medicalHistory;
     private List<Prescription> prescriptions;
 
-    private boolean isValidPesel(String pesel) {
-        return isCorrectLength(pesel) && isNumeric(pesel);
-    }
-
-    private boolean isCorrectLength(String pesel) {
-        return pesel != null && pesel.length() == 11;
-    }
-
-    private boolean isNumeric(String pesel) {
-        return pesel.matches("\\d{11}");
-    }
-    public Patient(int id,String name,Gender gender,Date date_of_birth,String pesel,Patient_status patient_status)
+    public Patient(int id, String name, Gender gender, Date dateOfBirth, String pesel, PatientStatus patientStatus)
     {
-        super(id, name);
-        if (!isValidPesel(pesel)) {
-            throw new IllegalArgumentException("Niepoprawny numer PESEL");
-        }
-        this.gender = gender;
-        this.date_of_birth=date_of_birth;
-        this.PESEL = pesel;
-        this.patient_status = patient_status;
-        this.medical_history = new ArrayList<>();
+        super(id, name, gender, dateOfBirth, pesel);
+        this.patientStatus = patientStatus;
+        this.medicalHistory = new ArrayList<>();
         this.prescriptions = new ArrayList<>();
-
     }
 
-    public Gender getGender() {
-        return gender;
+    public PatientStatus getPatientStatus() {
+        return patientStatus;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public String getPESEL() {
-        return PESEL;
-    }
-
-    public void setPESEL(String PESEL) {
-        this.PESEL = PESEL;
-    }
-
-    public Date getDateOfBirth() {
-        return date_of_birth;
-    }
-
-    public void setDateOfBirth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
-
-    public Patient_status getPatientStatus() {
-        return patient_status;
-    }
-
-    public void setPatientStatus(Patient_status patient_status) {
-        this.patient_status = patient_status;
+    public void setPatientStatus(PatientStatus patientStatus) {
+        this.patientStatus = patientStatus;
     }
 
     public List<String> getMedicalHistory() {
-        return medical_history;
+        return medicalHistory;
     }
 
     public void addMedicalHistory(String entry) {
-        medical_history.add(entry);
+        medicalHistory.add(entry);
     }
 
     public void getPrescriptions() {
         for(Prescription prescription:prescriptions)
             prescription.displayInfo();
     }
-
 
     public void addPrescription(Prescription entry) {
         prescriptions.add(entry);
@@ -100,7 +53,7 @@ public class Patient extends HospitalEntity{
             "Data urodzenia: %s\n" +
             "PESEL: %s\n" +
             "Status zdrowia pacjenta: %s",
-            name, gender, DATE_FORMAT.format(date_of_birth), PESEL, patient_status
+            name, gender, DATE_FORMAT.format(dateOfBirth),pesel, medicalHistory
         ));
         
     }

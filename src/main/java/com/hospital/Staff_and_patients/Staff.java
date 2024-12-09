@@ -2,72 +2,26 @@ package com.hospital.Staff_and_patients;
 
 import java.util.Date;
 
-import com.hospital.HospitalEntity;
+public class Staff extends Person {
 
-public class Staff extends HospitalEntity{
-
-    private Gender gender;
-    private String PESEL;
-    private Date date_of_birth;
-    private Staff_positions position;
+    private StaffPositions position;
     private String login;
     private String password;
 
-    private boolean isValidPesel(String pesel) {
-        return isCorrectLength(pesel) && isNumeric(pesel);
-    }
-
-    private boolean isCorrectLength(String pesel) {
-        return pesel != null && pesel.length() == 11;
-    }
-
-    private boolean isNumeric(String pesel) {
-        return pesel.matches("\\d{11}");
-    }
-
-    public Staff(int id,String name, Gender gender, String PESEL, Date date_of_birth, Staff_positions position, String login, String password)
+    public Staff(int id, String name, Gender gender, String pesel, Date dateOfBirth, StaffPositions position, String login, String password)
     {
-        super(id, name);
-        if (!isValidPesel(PESEL)) {
-            throw new IllegalArgumentException("Niepoprawny numer PESEL");
-        }
-        this.gender = gender;
-        this.PESEL = PESEL;
-        this.date_of_birth = date_of_birth;
+        super(id, name, gender, dateOfBirth, pesel);
         this.position = position;
         this.login = login;
         this.password = password;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
 
-    public String getPESEL() {
-        return PESEL;
-    }
-
-    public Date getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setPESEL(String PESEL) {
-        this.PESEL = PESEL;
-    }
-
-    public Staff_positions getPosition() {
+    public StaffPositions getPosition() {
         return position;
     }
 
-    public void setPosition(Staff_positions position) {
+    public void setPosition(StaffPositions position) {
         this.position = position;
     }
 
@@ -94,7 +48,7 @@ public class Staff extends HospitalEntity{
                         "PESEL: %s\n" +
                         "Data urodzenia: %s\n" +
                         "Stanowisko: %s\n",
-                name,gender,PESEL,DATE_FORMAT.format(date_of_birth),position
+                name,gender,pesel,DATE_FORMAT.format(dateOfBirth),position
         ));
     }
 

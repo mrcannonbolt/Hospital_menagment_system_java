@@ -1,6 +1,6 @@
 package com.hospital.Medicaments_and_Equipment;
 
-public enum Type_of_medicament {
+public enum TypeOfMedicament {
     SYRUP("Syrop"),
     SUSPENSION("Zawiesina"),
     GEL("Żel"),
@@ -15,7 +15,7 @@ public enum Type_of_medicament {
 
     private final String value;
 
-    Type_of_medicament(String value) {
+    TypeOfMedicament(String value) {
         this.value = value;
     }
 

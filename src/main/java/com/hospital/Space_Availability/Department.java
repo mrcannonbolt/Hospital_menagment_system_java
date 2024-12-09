@@ -20,7 +20,7 @@ public class Department extends HospitalEntity{
     {
         System.out.println
         (
-            "nazwa oddziału: "+this.name+"\n"+
+            "Nazwa oddziału: "+this.name+"\n"+
             "Sale na oddziale: "+"\n"
         );
         for (Room room : rooms) 
@@ -31,7 +31,7 @@ public class Department extends HospitalEntity{
 
     @Override
     public String toString() {
-        String output="Odział: "+name+"z pokojami: \n";
+        String output="Oddział: "+name+"z pokojami: \n";
         for (Room room : rooms) 
             {
                output+=room;
