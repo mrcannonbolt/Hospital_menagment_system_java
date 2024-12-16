@@ -29,9 +29,9 @@ public class App extends Application{
 
     @Override
     public void start(Stage stage) throws IOException {
-        Scene scene = new Scene(loadFXML("primary"));
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MainScene.fxml"));
         StackPane stackPane = fxmlLoader.load();
+        Scene scene = new Scene(stackPane, 700, 700);
         stage.setTitle("Aplikacja szpitala");
         stage.setScene(scene);
         stage.show();

@@ -33,6 +33,6 @@ public class LoginSystem {
                 System.out.println("Nieprawidłowy login lub hasło. Spróbuj ponownie.");
             }
         }
-        
+        return staff;
     }
 }
