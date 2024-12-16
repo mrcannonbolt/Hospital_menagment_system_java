@@ -1,5 +1,8 @@
 package com.hospital;
 
+import com.hospital.Staff_and_patients.LoginSystem;
+import com.hospital.Staff_and_patients.Staff;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,7 +23,16 @@ public class LoginController {
 
     @FXML
     public void tryToLoginUser() {
-
+        LoginSystem loginSystem = LoginSystem.getInstance();
+        Staff staff=loginSystem.login(loginField.getText(),passwordField.getText());
+        if(staff!=null)
+        {
+            wrongPasswordLabel.setText("zalogowany");
+        }
+        else
+        {
+            wrongPasswordLabel.setText("błędne hasło lub login");
+        }
     }
     @FXML
     public void tryToExitProgram() {

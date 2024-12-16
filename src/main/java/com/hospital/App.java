@@ -41,12 +41,8 @@ public class App extends Application{
             Date date1 = sdf1.parse("2001.02.02");
             Date date2 = sdf1.parse("1992.06.02");
             Staff doctor = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2, StaffPositions.DOCTOR,"qwerty","qwerty");
-            LoginSystem loginSystem = new LoginSystem();
+            LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor);
-            Staff loggedInStaff = loginSystem.login();
-            if (loggedInStaff != null) {
-                loggedInStaff.displayInfo();
-            }
             Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
             Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
 
