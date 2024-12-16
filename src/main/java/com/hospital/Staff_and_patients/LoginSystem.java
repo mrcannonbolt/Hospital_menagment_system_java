@@ -12,7 +12,8 @@ public class LoginSystem {
         staffAccounts.put(staff.getLogin(), staff);
     }
 
-    public Staff login() {
+    public Staff login() 
+    {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj login: ");
         String login = scanner.nextLine();
@@ -30,6 +31,5 @@ public class LoginSystem {
             scanner.close();
             return null;
         }
-        
     }
 }

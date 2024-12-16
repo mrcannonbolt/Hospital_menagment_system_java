@@ -1,0 +1,6 @@
+.terminal
+{
+    -fx-font-family: monospace;
+    -fx-background-color: black;
+    -fx-text-fill: white;
+};

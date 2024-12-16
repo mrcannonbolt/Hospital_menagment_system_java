@@ -13,7 +13,7 @@ import com.hospital.Staff_and_patients.Staff;
 public class Prescription extends HospitalEntity {
 
     private Map<Medicament, Integer> medicaments;
-    private List<Integer> pickup_codes_list= new ArrayList<>();
+    private static List<Integer> pickup_codes_list= new ArrayList<>();
     private Integer pickup_code;
     private Staff issuingDoctor;
     private Date expiration_date;
