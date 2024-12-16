@@ -5,7 +5,7 @@ import com.hospital.Staff_and_patients.Patient;
 
 public class Bed extends HospitalEntity{
 
-    private Patient current_patient=null;
+    private Patient currentPatient=null;
 
     public Bed(int id,String name)
     {
@@ -17,29 +17,29 @@ public class Bed extends HospitalEntity{
     public void displayInfo()
     {
         System.out.println("numer:"+name+"\n"+
-        "aktualny pacjent: "+current_patient);
+        "aktualny pacjent: "+currentPatient);
     }
 
     @Override
     public String toString() {
-        if(current_patient==null)
+        if(currentPatient==null)
         {
             return name+": wolne"; 
         }
-        return name+": "+current_patient;
+        return name+": "+currentPatient;
     }
 
     public void assignPatient(Patient patient) {
-        if (current_patient!=null) {
-            throw new IllegalStateException("Bed is already occupied");
+        if (currentPatient!=null) {
+            throw new IllegalStateException("Łóżko jest zajęte");
         }
-        this.current_patient = patient;
+        this.currentPatient = patient;
     }
 
     public void releaseBed() {
-        if (current_patient!=null) {
-            throw new IllegalStateException("Bed is already free");
+        if (currentPatient!=null) {
+            throw new IllegalStateException("Łóżko jest wolne");
         }
-        this.current_patient = null;
+        this.currentPatient = null;
     }
 }

@@ -15,21 +15,24 @@ public class LoginSystem {
     public Staff login() 
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Podaj login: ");
-        String login = scanner.nextLine();
+        Staff staff = null;
 
-        System.out.print("Podaj hasło: ");
-        String password = scanner.nextLine();
+        while (true) {
+            System.out.print("Podaj login: ");
+            String login = scanner.nextLine();
 
-        Staff staff = staffAccounts.get(login);
-        if (staff != null && staff.authorization(password)) {
-            System.out.println("Zalogowano pomyślnie jako: " + staff.getName());
-            scanner.close();
-            return null;
-        } else {
-            System.out.println("Nieprawidłowy login lub hasło.");
-            scanner.close();
-            return null;
+            System.out.print("Podaj hasło: ");
+            String password = scanner.nextLine();
+
+            staff = staffAccounts.get(login);
+
+            if (staff != null && staff.authorization(password)) {
+                System.out.println("Zalogowano pomyślnie jako: " + staff.getName());
+                break;
+            } else {
+                System.out.println("Nieprawidłowy login lub hasło. Spróbuj ponownie.");
+            }
         }
+        
     }
 }

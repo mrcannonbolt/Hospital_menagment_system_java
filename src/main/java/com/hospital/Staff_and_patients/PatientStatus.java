@@ -1,6 +1,6 @@
 package com.hospital.Staff_and_patients;
 
-public enum Patient_status {
+public enum PatientStatus {
     ADMITTED("Przyjęty"),
     UNDER_OBSERVATION("Pod obserwacją"),
     CRITICAL_CONDITION("Krytyczny stan"),
@@ -10,7 +10,7 @@ public enum Patient_status {
 
     private final String value;
 
-    Patient_status(String value) {
+    PatientStatus(String value) {
         this.value = value;
     }
 

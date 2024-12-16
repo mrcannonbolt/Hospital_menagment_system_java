@@ -4,9 +4,9 @@ import com.hospital.HospitalEntity;
 
 public class Equipment extends HospitalEntity{
 
-    private Type_of_equipment type;
+    private TypeOfEquipment type;
 
-    public Equipment(int id, String name, Type_of_equipment type) {
+    public Equipment(int id, String name, TypeOfEquipment type) {
         super(id, name);
         this.type = type;
     }

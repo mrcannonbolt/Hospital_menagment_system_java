@@ -1,6 +1,6 @@
 package com.hospital.Medicaments_and_Equipment;
 
-public enum Type_of_equipment {
+public enum TypeOfEquipment {
 
     MONITORING("Monitorowanie"),
     LIFE_SUPPORT("Podtrzymywanie życia"),
@@ -10,7 +10,7 @@ public enum Type_of_equipment {
 
     private final String value;
 
-    Type_of_equipment(String value) {
+    TypeOfEquipment(String value) {
         this.value = value;
     }
 
