@@ -29,7 +29,19 @@ public class MainController {
         LoginController loginController = fxmlLoader.getController();
         loginController.setMainController(this);
     }
+    public void loadMenuScreen() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuScreen.fxml"));
+        AnchorPane anchorPane;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Nie udało się załadować Menu", e);
+        }
+        setScreen(anchorPane);
 
+        MenuController menuController = fxmlLoader.getController();
+        menuController.setMainController(this);
+    }
     public void setScreen(AnchorPane anchorPane) {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(anchorPane);

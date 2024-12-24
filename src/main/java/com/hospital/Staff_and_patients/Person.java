@@ -2,6 +2,7 @@ package com.hospital.Staff_and_patients;
 
 import com.hospital.HospitalEntity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Person extends HospitalEntity {
@@ -9,9 +10,9 @@ public class Person extends HospitalEntity {
 
     protected Gender gender;
     protected String pesel;
-    protected Date dateOfBirth;
+    protected LocalDate dateOfBirth;
 
-    public Person(int id,String name,Gender gender,Date dateOfBirth,String pesel)
+    public Person(int id,String name,Gender gender,LocalDate dateOfBirth,String pesel)
     {
         super(id, name);
         if (!isValidPesel(pesel)) {
@@ -49,11 +50,11 @@ public class Person extends HospitalEntity {
         this.pesel = this.pesel;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -61,12 +62,12 @@ public class Person extends HospitalEntity {
     public void displayInfo()
         {
             System.out.println(String.format(
-                    "Informacje o pacjencie:\n" +
+                    "Informacje o człowieku:\n" +
                             "Imię: %s\n" +
                             "Płeć: %s\n" +
                             "Data urodzenia: %s\n" +
                             "PESEL: %s",
-                    name, gender, DATE_FORMAT.format(dateOfBirth), pesel
+                    name, gender, dateOfBirth, pesel
             ));
 
         }

@@ -1,6 +1,7 @@
 package com.hospital.Staff_and_patients;
 
 public enum PatientStatus {
+    HOSPITAL_CLIENT("Klient szpitala"),
     ADMITTED("Przyjęty"),
     UNDER_OBSERVATION("Pod obserwacją"),
     CRITICAL_CONDITION("Krytyczny stan"),

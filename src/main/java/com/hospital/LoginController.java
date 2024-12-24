@@ -32,24 +32,27 @@ public class LoginController {
         Staff staff=loginSystem.login(loginField.getText(),passwordField.getText());
         if(staff!=null)
         {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MenuScreen.fxml"));
-            AnchorPane anchorPane = null;
-            try {
-                anchorPane = fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            mainController.setScreen(anchorPane);
-            MenuController menuController = fxmlLoader.getController();
-            menuController.setMainController(mainController);
-            menuController.setUser(staff);
+            loadMenuScreen(staff);
         }
         else
         {
             wrongPasswordLabel.setText("Błędne hasło lub login");
         }
     }
+    public void loadMenuScreen(Staff staff) {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MenuScreen.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        MenuController menuController = fxmlLoader.getController();
+        menuController.setMainController(mainController);
+        menuController.setUser(staff);
+    }
+
     @FXML
     public void tryToExitProgram() {
         Platform.exit();

@@ -1,6 +1,6 @@
 package com.hospital.Staff_and_patients;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Staff extends Person {
 
@@ -8,7 +8,7 @@ public class Staff extends Person {
     private String login;
     private String password;
 
-    public Staff(int id, String name, Gender gender, String pesel, Date dateOfBirth, StaffPositions position, String login, String password)
+    public Staff(int id, String name, Gender gender, String pesel, LocalDate dateOfBirth, StaffPositions position, String login, String password)
     {
         super(id, name, gender, dateOfBirth, pesel);
         this.position = position;
@@ -48,12 +48,17 @@ public class Staff extends Person {
                         "PESEL: %s\n" +
                         "Data urodzenia: %s\n" +
                         "Stanowisko: %s\n",
-                name,gender,pesel,DATE_FORMAT.format(dateOfBirth),position
+                name,gender,pesel,dateOfBirth,position
         ));
     }
 
-    public String toString()
-    {
-        return name;
+    public String toString() {
+        return "Informacje o pracowniku:\n" +
+                "ID: " + id + "\n" +
+                "Imię i nazwisko: " + name + "\n" +
+                "Płeć: " + gender + "\n" +
+                "Data urodzenia: " + dateOfBirth + "\n" +
+                "PESEL: " + pesel + "\n" +
+                "Stanowisko: " + position + "\n";
     }
 }

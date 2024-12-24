@@ -4,7 +4,11 @@ import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class MenuController {
 
@@ -98,7 +102,16 @@ public class MenuController {
 
     @FXML
     public void runAddingPatients() {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("addPatientWindow.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        AddPatientController addPatientController = fxmlLoader.getController();
+        addPatientController.setMainController(mainController);
     }
 
     @FXML
@@ -134,6 +147,7 @@ public class MenuController {
     public void tryToLoginAgain() {
     mainController.loadLoginScreen();
     }
+
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }

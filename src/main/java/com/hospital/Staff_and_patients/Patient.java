@@ -1,6 +1,6 @@
 package com.hospital.Staff_and_patients;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.hospital.Medicaments_and_Equipment.Prescription;
@@ -11,7 +11,7 @@ public class Patient extends Person {
     private List<String> medicalHistory;
     private List<Prescription> prescriptions;
 
-    public Patient(int id, String name, Gender gender, Date dateOfBirth, String pesel, PatientStatus patientStatus)
+    public Patient(int id, String name, Gender gender, LocalDate dateOfBirth, String pesel, PatientStatus patientStatus)
     {
         super(id, name, gender, dateOfBirth, pesel);
         this.patientStatus = patientStatus;
@@ -52,15 +52,19 @@ public class Patient extends Person {
             "Płeć: %s\n" +
             "Data urodzenia: %s\n" +
             "PESEL: %s\n" +
-            "Status zdrowia pacjenta: %s",
-            name, gender, DATE_FORMAT.format(dateOfBirth),pesel, patientStatus
+            "Status pacjenta: %s",
+            name, gender, dateOfBirth,pesel, patientStatus
         ));
         
     }
-
     @Override
     public String toString() {
-        return name;
+        return "Informacje o pacjencie:\n" +
+                "ID: " + id + "\n" +
+                "Imię i nazwisko: " + name + "\n" +
+                "Płeć: " + gender + "\n" +
+                "Data urodzenia: " + dateOfBirth + "\n" +
+                "PESEL: " + pesel + "\n" +
+                "Status pacjenta: " + patientStatus + "\n";
     }
-
 }

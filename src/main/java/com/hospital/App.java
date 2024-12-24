@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +22,6 @@ import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.PatientStatus;
 import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class App extends Application{
 
@@ -35,13 +33,10 @@ public class App extends Application{
         stage.setTitle("Aplikacja szpitala");
         stage.setScene(scene);
         stage.show();
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
         try
         {
-            Date date1 = sdf1.parse("2001.02.02");
-            Date date2 = sdf1.parse("1992.06.02");
-            Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",date2, StaffPositions.RESCUER,"qwerty123","qwerty123");
-            Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2, StaffPositions.DOCTOR,"qwerty","qwerty");
+            Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
+            Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
@@ -53,7 +48,7 @@ public class App extends Application{
             medicamentMap.put(med1, 2);
             medicamentMap.put(med2, 1);
 
-            Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232", PatientStatus.CRITICAL_CONDITION);
+            Patient marek = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             marek.addPrescription(prescription1);
             marek.displayInfo();
@@ -74,15 +69,11 @@ public class App extends Application{
             room1.addBed(bed1);
             room1.addBed(bed2);
             room2.addBed(bed3);
-            bed1.assignPatient(marek);
+            ///bed1.assignPatient(marek);
 
             System.out.println("\n");
             department1.displayInfo();
 
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
         }
         catch (IllegalArgumentException e)
         {
@@ -95,5 +86,4 @@ public class App extends Application{
     public static void main(String[] args) {
         launch();
     }
-
 }
