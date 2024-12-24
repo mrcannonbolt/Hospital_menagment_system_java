@@ -30,7 +30,7 @@ public class MainController {
         loginController.setMainController(this);
     }
 
-    private void setScreen(AnchorPane anchorPane) {
+    public void setScreen(AnchorPane anchorPane) {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(anchorPane);
     }

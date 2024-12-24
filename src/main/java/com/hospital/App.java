@@ -31,7 +31,7 @@ public class App extends Application{
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MainScene.fxml"));
         StackPane stackPane = fxmlLoader.load();
-        Scene scene = new Scene(stackPane, 700, 700);
+        Scene scene = new Scene(stackPane, 900, 600);
         stage.setTitle("Aplikacja szpitala");
         stage.setScene(scene);
         stage.show();
@@ -40,9 +40,11 @@ public class App extends Application{
         {
             Date date1 = sdf1.parse("2001.02.02");
             Date date2 = sdf1.parse("1992.06.02");
-            Staff doctor = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2, StaffPositions.DOCTOR,"qwerty","qwerty");
+            Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",date2, StaffPositions.RESCUER,"qwerty123","qwerty123");
+            Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357",date2, StaffPositions.DOCTOR,"qwerty","qwerty");
             LoginSystem loginSystem = LoginSystem.getInstance();
-            loginSystem.registerStaff(doctor);
+            loginSystem.registerStaff(doctor1);
+            loginSystem.registerStaff(rescuer1);
             Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
             Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
 
@@ -52,11 +54,11 @@ public class App extends Application{
             medicamentMap.put(med2, 1);
 
             Patient marek = new Patient(1, "Marek", Gender.MAN,date1,"12221323232", PatientStatus.CRITICAL_CONDITION);
-            Prescription prescription1 = new Prescription(0, "precsription1", doctor, medicamentMap);
+            Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             marek.addPrescription(prescription1);
             marek.displayInfo();
             marek.getPrescriptions();
-            doctor.displayInfo();
+            doctor1.displayInfo();
 
             /////////////////////////////////// testy sale ///////////////////////////////////////////////
             Bed bed1= new Bed(1,"1");
