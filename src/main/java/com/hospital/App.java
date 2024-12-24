@@ -69,7 +69,7 @@ public class App extends Application{
             room1.addBed(bed1);
             room1.addBed(bed2);
             room2.addBed(bed3);
-            ///bed1.assignPatient(marek);
+            bed1.assignPatient(marek);
 
             System.out.println("\n");
             department1.displayInfo();
