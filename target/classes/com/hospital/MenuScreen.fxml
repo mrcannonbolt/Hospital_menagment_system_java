@@ -4,15 +4,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="456.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="456.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.MenuController">
    <children>
-      <Label layoutX="377.0" layoutY="29.0" text="Menu" />
-      <Button layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Zarejestruj pacjenta" />
-      <Button layoutX="14.0" layoutY="195.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Wypisz receptę" />
-      <Button layoutX="620.0" layoutY="76.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Dodaj pracownika" />
-      <Button layoutX="620.0" layoutY="195.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Button" />
-      <Button layoutX="14.0" layoutY="307.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Umów wizytę" />
-      <Button layoutX="620.0" layoutY="307.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="147.0" text="Button" />
-      <Button layoutX="368.0" layoutY="390.0" mnemonicParsing="false" text="Wyjdź" />
+      <Label layoutX="377.0" layoutY="29.0" text="Menu" AnchorPane.topAnchor="29.0" />
+      <Button fx:id="addPatientButton" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onAction="#runAddingPatients" prefHeight="66.0" prefWidth="147.0" text="Dopisz pacjenta" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="receiptButton" layoutX="14.0" layoutY="195.0" mnemonicParsing="false" onAction="#runReceipts" prefHeight="66.0" prefWidth="147.0" text="Wypisz receptę" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="staffButton" layoutX="620.0" layoutY="76.0" mnemonicParsing="false" onAction="#runStaffManagement" prefHeight="66.0" prefWidth="147.0" text="Dodaj pracownika" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="medicalHistoryButton" layoutX="620.0" layoutY="195.0" mnemonicParsing="false" onAction="#runMedicalHistory" prefHeight="66.0" prefWidth="147.0" text="Zobacz Historię Pacjenta" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="visitButton" layoutX="14.0" layoutY="307.0" mnemonicParsing="false" onAction="#runVisits" prefHeight="66.0" prefWidth="147.0" text="Umów wizytę" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="registerButton" layoutX="620.0" layoutY="307.0" mnemonicParsing="false" onAction="#runRegisteringPatient" prefHeight="66.0" prefWidth="147.0" text="Zarejestruj pacjenta" AnchorPane.rightAnchor="14.0" />
+      <Button layoutX="384.0" layoutY="373.0" mnemonicParsing="false" onAction="#tryToExitProgram" text="Wyjdź" AnchorPane.bottomAnchor="58.0" />
+      <Button layoutX="318.0" layoutY="411.0" mnemonicParsing="false" onAction="#tryToLoginAgain" prefHeight="25.0" prefWidth="181.0" text="Zaloguj na innego użytkownika" AnchorPane.bottomAnchor="20.0" />
    </children>
 </AnchorPane>
