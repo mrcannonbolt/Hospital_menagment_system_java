@@ -37,9 +37,11 @@ public class App extends Application{
         {
             Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
             Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
+            Staff admin1 = new Staff(1,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
+            loginSystem.registerStaff(admin1);
             Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
             Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
 

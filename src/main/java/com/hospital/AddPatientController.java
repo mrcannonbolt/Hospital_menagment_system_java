@@ -12,6 +12,8 @@ import java.time.LocalDate;
 
 public class AddPatientController {
 
+    private int lastId=0;
+
     @FXML
     private MainController mainController;
 
@@ -41,6 +43,11 @@ public class AddPatientController {
         mainController.loadMenuScreen();
     }
 
+    public int idGenerator() {
+        lastId+=1;
+        return lastId;
+    }
+
     @FXML
     public void addPatient() {
         String name = patientName.getText();
@@ -51,7 +58,7 @@ public class AddPatientController {
         if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || status == null) {
             System.out.println("Wszystkie pola muszą być wypełnione.");
         }
-        Patient newPatient = new Patient(2, name, gender, localDate, pesel, status);
+        Patient newPatient = new Patient(idGenerator(), name, gender, localDate, pesel, status);
         System.out.println("Pacjent dodany:\n" + newPatient);
     }
 

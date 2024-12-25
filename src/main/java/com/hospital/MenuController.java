@@ -121,7 +121,16 @@ public class MenuController {
 
     @FXML
     public void runStaffManagement() {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("StaffManagementWindow.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        StaffManagementController staffManagementController = fxmlLoader.getController();
+        staffManagementController.setMainController(mainController);
     }
 
     @FXML
