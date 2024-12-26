@@ -1,9 +1,11 @@
 package com.hospital;
 
+import com.hospital.Appointments.AppointmentManager;
 import com.hospital.Staff_and_patients.Gender;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.PatientStatus;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -53,15 +55,29 @@ public class AddPatientController {
         String name = patientName.getText();
         String pesel = patientPESEL.getText();
         Gender gender = patientGender.getValue();
-        LocalDate localDate = patientDate.getValue();
+        LocalDate birthDate = patientDate.getValue();
         PatientStatus status = patientStatus.getValue();
-        if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || status == null) {
-            System.out.println("Wszystkie pola muszą być wypełnione.");
+        if (name.isEmpty() || pesel.isEmpty() || gender == null || birthDate == null || status == null) {
+            showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
+            return;
         }
-        Patient newPatient = new Patient(idGenerator(), name, gender, localDate, pesel, status);
-        System.out.println("Pacjent dodany:\n" + newPatient);
-    }
+        try {
+            Patient newPatient = new Patient(idGenerator(), name, gender, birthDate, pesel, status);
+            AppointmentManager.getInstance().addPatient(newPatient);
+            showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
+        } catch (IllegalArgumentException e) {
+            // Obsługa błędów walidacji PESEL
+            showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);
+        }
 
+    }
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }

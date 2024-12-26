@@ -1,5 +1,6 @@
 package com.hospital;
 
+import com.hospital.Appointments.AppointmentManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +40,9 @@ public class App extends Application{
             Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
             Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
             Staff admin1 = new Staff(1,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
+            AppointmentManager.getInstance().addStaffMember(rescuer1);
+            AppointmentManager.getInstance().addStaffMember(doctor1);
+            AppointmentManager.getInstance().addStaffMember(admin1);
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
@@ -51,12 +56,16 @@ public class App extends Application{
             medicamentMap.put(med2, 1);
 
             Patient marek = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
+            AppointmentManager.getInstance().addPatient(marek);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             marek.addPrescription(prescription1);
             marek.displayInfo();
             marek.getPrescriptions();
             doctor1.displayInfo();
-
+            AppointmentManager appointmentManager = AppointmentManager.getInstance();
+            appointmentManager.bookAppointment(doctor1,marek, LocalDateTime.of(2024,12,26,10,30),"Wizyta kontrolna");
+            appointmentManager.bookAppointment(doctor1,marek, LocalDateTime.of(2024,12,26,10,31),"Wizyta kontrolna");
+            appointmentManager.getAllAppointments();
             /////////////////////////////////// testy sale ///////////////////////////////////////////////
             Bed bed1= new Bed(1,"1");
             Bed bed2= new Bed(2,"2");
@@ -81,8 +90,6 @@ public class App extends Application{
         {
             System.out.println("dupa");
         }
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void main(String[] args) {

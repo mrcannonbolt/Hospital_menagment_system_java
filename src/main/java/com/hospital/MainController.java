@@ -38,7 +38,6 @@ public class MainController {
             throw new RuntimeException("Nie udało się załadować Menu", e);
         }
         setScreen(anchorPane);
-
         MenuController menuController = fxmlLoader.getController();
         menuController.setMainController(this);
     }

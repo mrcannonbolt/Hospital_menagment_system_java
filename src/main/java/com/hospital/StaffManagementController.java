@@ -1,9 +1,7 @@
 package com.hospital;
 
-import com.hospital.Staff_and_patients.Gender;
-import com.hospital.Staff_and_patients.LoginSystem;
-import com.hospital.Staff_and_patients.Staff;
-import com.hospital.Staff_and_patients.StaffPositions;
+import com.hospital.Appointments.AppointmentManager;
+import com.hospital.Staff_and_patients.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -103,15 +101,22 @@ public class StaffManagementController {
         String name = staffName.getText();
         String pesel = staffPesel.getText();
         Gender gender = staffGender.getValue();
-        LocalDate localDate = staffDate.getValue();
+        LocalDate birthDate = staffDate.getValue();
         StaffPositions position = staffPosition.getValue();
         String login = staffLogin.getText();
         String password = staffPassword.getText();
-        if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || position == null || login.isEmpty() || password.isEmpty()) {
-            System.out.println("Wszystkie pola muszą być wypełnione.");
+        if (name.isEmpty() || pesel.isEmpty() || gender == null || birthDate == null || position == null || login.isEmpty() || password.isEmpty()) {
+            showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
+            return;
         }
-        Staff newStaff = new Staff(idGenerator(),name,gender,pesel,localDate,position,login,password);
-        System.out.println("Pracownik dodany:\n" + newStaff);
+        try {
+        Staff newStaff = new Staff(idGenerator(),name,gender,pesel,birthDate,position,login,password);
+        AppointmentManager.getInstance().addStaffMember(newStaff);
+        showAlert("Sukces","Pracownik dodany:\n" + newStaff, Alert.AlertType.INFORMATION);
+        } catch (IllegalArgumentException e) {
+            // Obsługa błędów walidacji PESEL
+            showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -124,14 +129,23 @@ public class StaffManagementController {
         String login = staffLogin.getText();
         String password = staffPassword.getText();
         if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || position == null || login.isEmpty() || password.isEmpty()) {
-            System.out.println("Wszystkie pola muszą być wypełnione.");
+            showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
+            return;
         }
         Staff newStaff = new Staff(idGenerator(),name,gender,pesel,localDate,position,login,password);
+        AppointmentManager.getInstance().addStaffMember(newStaff);
         LoginSystem loginSystem = LoginSystem.getInstance();
         loginSystem.registerStaff(newStaff);
-        System.out.println("Pracownik dodany i zarejestrowany w systemie:\n" + newStaff);
+        showAlert("Sukces","Pracownik dodany i zarejestrowany w systemie:\n" + newStaff, Alert.AlertType.INFORMATION);
     }
 
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
