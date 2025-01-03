@@ -14,7 +14,8 @@
       <Label layoutX="262.0" layoutY="146.0" text="Login" />
       <Label layoutX="262.0" layoutY="209.0" text="Hasło" />
       <Button layoutX="383.0" layoutY="344.0" mnemonicParsing="false" onAction="#tryToLoginUser" text="Zaloguj" />
-      <Label fx:id="wrongPasswordLabel" layoutX="273.0" layoutY="286.0" />
+      <Label fx:id="wrongPasswordLabel" alignment="TOP_CENTER" layoutX="264.0" layoutY="278.0" prefHeight="11.0" prefWidth="149.0" />
       <Button layoutX="238.0" layoutY="344.0" mnemonicParsing="false" onAction="#tryToExitProgram" text="Wyjdź" />
+      <Label layoutX="322.0" layoutY="269.0" prefHeight="17.0" prefWidth="0.0" />
    </children>
 </AnchorPane>

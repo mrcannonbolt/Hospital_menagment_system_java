@@ -7,6 +7,8 @@ import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
+import com.hospital.Staff_and_patients.Staff;
+
 public class MainController {
 
     @FXML
@@ -30,8 +32,8 @@ public class MainController {
         loginController.setMainController(this);
     }
     public void loadMenuScreen() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuScreen.fxml"));
         AnchorPane anchorPane;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuScreen.fxml"));
         try {
             anchorPane = fxmlLoader.load();
         } catch (IOException e) {
@@ -41,6 +43,20 @@ public class MainController {
         MenuController menuController = fxmlLoader.getController();
         menuController.setMainController(this);
     }
+    public void bactToMenuScreen(Staff staff) {
+        AnchorPane anchorPane;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuScreen.fxml"));
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Nie udało się załadować Menu", e);
+        }
+        setScreen(anchorPane);
+        MenuController menuController = fxmlLoader.getController();
+        menuController.setMainController(this);
+        menuController.configureMenu(staff);
+    }
+
     public void setScreen(AnchorPane anchorPane) {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(anchorPane);

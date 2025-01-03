@@ -4,6 +4,8 @@ import com.hospital.Appointments.AppointmentManager;
 import com.hospital.Staff_and_patients.Gender;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.PatientStatus;
+import com.hospital.Staff_and_patients.Staff;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -34,6 +36,12 @@ public class AddPatientController {
     @FXML
     private DatePicker patientDate;
 
+    private Staff staff;
+
+    public void setUser(Staff staff) {
+        this.staff = staff;
+    }
+
     @FXML
     public void initialize() {
         patientStatus.getItems().addAll(PatientStatus.values());
@@ -42,7 +50,7 @@ public class AddPatientController {
     }
     @FXML
     public void backMenu() {
-        mainController.loadMenuScreen();
+        mainController.bactToMenuScreen(staff);
     }
 
     public int idGenerator() {

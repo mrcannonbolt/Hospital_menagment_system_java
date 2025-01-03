@@ -19,6 +19,7 @@ import java.io.IOException;
 
 public class MenuController {
 
+
     @FXML
     private MainController mainController;
 
@@ -43,7 +44,7 @@ public class MenuController {
     @FXML
     private Button medicalHistoryButton;
 
-    private Staff staff;
+    private static Staff staff;
 
     @FXML
     public void configureMenu(Staff staff) {
@@ -131,6 +132,7 @@ public class MenuController {
         mainController.setScreen(anchorPane);
         AddPatientController addPatientController = fxmlLoader.getController();
         addPatientController.setMainController(mainController);
+        addPatientController.setUser(staff);
     }
 
     @FXML
