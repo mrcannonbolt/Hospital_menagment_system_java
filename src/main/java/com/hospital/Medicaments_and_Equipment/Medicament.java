@@ -24,6 +24,7 @@ public class Medicament extends HospitalEntity{
         System.out.println(name);
     }
 
+    @Override
     public String toString()
     {
         return name;

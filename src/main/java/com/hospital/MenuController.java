@@ -1,6 +1,7 @@
 package com.hospital;
 
 import com.hospital.Appointments.AppointmentManager;
+import com.hospital.Medicaments_and_Equipment.Medicament;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
@@ -25,6 +26,7 @@ public class MenuController {
 
     private ObservableList<Staff> doctors;
     private ObservableList<Patient> patients;
+    private ObservableList<Medicament> medicaments;
 
     @FXML
     private Button registerButton;
@@ -114,11 +116,24 @@ public class MenuController {
         configureMenu(staff);
     }
 
-    private void prepareDoctorAndPatientsListsForAppointments() {
+    //?????????????????????????
+    private void prepareDoctorAndPatientsLists() {
         doctors = FXCollections.observableArrayList(AppointmentManager.getInstance().getStaffMembers());
 
         patients = FXCollections.observableArrayList(AppointmentManager.getInstance().getPatients());
     }
+
+    // Przygotowanie danych
+    private void prepareDate()
+    {
+        doctors = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Staff.class);
+
+        patients = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Patient.class);
+
+        medicaments = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Medicament.class);
+
+    }
+
 
     @FXML
     public void runAddingPatients() {
@@ -151,8 +166,19 @@ public class MenuController {
     }
 
     @FXML
-    public void runReceipts() {
-
+    public void runAddingPrescription() {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("addPrescriptionWindow.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        AddPrescriptionController addPrescriptionController = fxmlLoader.getController();
+        prepareDate();
+        addPrescriptionController.setData(staff,patients,medicaments);
+        addPrescriptionController.setMainController(mainController);
     }
 
     @FXML
@@ -175,6 +201,22 @@ public class MenuController {
     }
 
     @FXML
+    public void runPrescriptions() {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("Prescriptions.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        AddPrescriptionController addPrescriptionController = fxmlLoader.getController();
+        prepareDate();
+        addPrescriptionController.setData(staff,patients,medicaments);
+        addPrescriptionController.setMainController(mainController);
+    }
+
+    @FXML
     public void runVisits() {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("BookAppointmentWindow.fxml"));
         AnchorPane anchorPane = null;
@@ -186,9 +228,8 @@ public class MenuController {
         mainController.setScreen(anchorPane);
         BookAppointmentController bookAppointmentController = fxmlLoader.getController();
         bookAppointmentController.setMainController(mainController);
-        prepareDoctorAndPatientsListsForAppointments();
-        bookAppointmentController.setUser(staff);
-        bookAppointmentController.setData(AppointmentManager.getInstance(),doctors,patients);
+        prepareDoctorAndPatientsLists();
+        bookAppointmentController.setData(staff, AppointmentManager.getInstance(),doctors,patients);
     }
 
     @FXML

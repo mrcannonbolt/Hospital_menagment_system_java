@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.hospital.Medicaments_and_Equipment.Medicament;
@@ -26,6 +28,8 @@ import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
 
 public class App extends Application{
+
+    static public List<Object> listOfObjects = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -47,15 +51,20 @@ public class App extends Application{
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
             loginSystem.registerStaff(admin1);
+            listOfObjects.add(doctor1);
+            listOfObjects.add(rescuer1);
+            listOfObjects.add(admin1);
             Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
             Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
-
+            listOfObjects.add(med1);
+            listOfObjects.add(med2);
 
             Map<Medicament, Integer> medicamentMap = new HashMap<>();
             medicamentMap.put(med1, 2);
             medicamentMap.put(med2, 1);
 
             Patient marek = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
+            listOfObjects.add(marek);
             AppointmentManager.getInstance().addPatient(marek);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             marek.addPrescription(prescription1);

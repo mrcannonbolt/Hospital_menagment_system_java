@@ -1,6 +1,11 @@
 package com.hospital;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 // Klasa abstrakcyjna, która definiuje ogólne metody dla jednostek w systemie szpitalnym
@@ -26,6 +31,16 @@ public abstract class HospitalEntity{
 
     public Date getDate() {
         return date;
+    }
+
+    protected static <T> ObservableList<T> filterAndConvertToObservableList(List<?> list, Class<T> type) {
+        // Filtrujemy elementy danego typu i konwertujemy do ObservableList
+        List<T> filteredList = list.stream()
+                                   .filter(type::isInstance)
+                                   .map(type::cast)
+                                   .collect(Collectors.toList());
+
+        return FXCollections.observableArrayList(filteredList);
     }
 
     public abstract void displayInfo();

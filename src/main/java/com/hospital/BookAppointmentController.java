@@ -27,11 +27,8 @@ public class BookAppointmentController {
 
     private Staff staff;
 
-    public void setUser(Staff staff) {
+    public void setData(Staff staff, AppointmentManager appointmentManager, ObservableList<Staff> staffMembers, ObservableList<Patient> patients) {
         this.staff = staff;
-    }
-
-    public void setData(AppointmentManager appointmentManager, ObservableList<Staff> staffMembers, ObservableList<Patient> patients) {
         this.appointmentManager = appointmentManager;
         appointStaff.setItems(staffMembers);
         appointPatient.setItems(patients);
