@@ -51,6 +51,14 @@ public class StaffManagementController {
     private Button addStaffAndRegisterId;
 
     @FXML
+    private Staff staff;
+
+    @FXML
+    public void setUser(Staff staff) {
+        this.staff=staff;
+    }
+
+    @FXML
     public int idGenerator() {
         lastId+=1;
         return lastId;
@@ -94,7 +102,7 @@ public class StaffManagementController {
 
     @FXML
     public void backMenu() {
-        mainController.loadMenuScreen();
+        mainController.backToMenuScreen(staff);
     }
     @FXML
     public void addStaff() {

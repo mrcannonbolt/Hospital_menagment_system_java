@@ -50,7 +50,7 @@ public class AddPatientController {
     }
     @FXML
     public void backMenu() {
-        mainController.bactToMenuScreen(staff);
+        mainController.backToMenuScreen(staff);
     }
 
     public int idGenerator() {

@@ -14,7 +14,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -84,7 +83,7 @@ public class AddPrescriptionController {
     public void backMenu() {
         prescription.deletePickupCode(prescription.getPickupCode());
         prescription = null;
-        mainController.bactToMenuScreen(staff);
+        mainController.backToMenuScreen(staff);
     }
 
     @FXML
@@ -122,7 +121,7 @@ public class AddPrescriptionController {
             return;
         }
         prescriptionPatient.getValue().addPrescription(prescription);
-        mainController.bactToMenuScreen(staff);
+        mainController.backToMenuScreen(staff);
     }
 
     private void showAlert(Alert.AlertType type, String message) {

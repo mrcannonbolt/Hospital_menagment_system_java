@@ -35,7 +35,7 @@ public class BookAppointmentController {
     }
     @FXML
     public void backMenu() {
-        mainController.bactToMenuScreen(staff);
+        mainController.backToMenuScreen(staff);
     }
 
     @FXML
