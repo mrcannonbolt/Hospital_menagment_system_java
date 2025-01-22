@@ -211,10 +211,10 @@ public class MenuController {
             throw new RuntimeException(e);
         }
         mainController.setScreen(anchorPane);
-        AddPrescriptionController addPrescriptionController = fxmlLoader.getController();
+        PrescriptionController PrescriptionController = fxmlLoader.getController();
         prepareDate();
-        addPrescriptionController.setData(staff,patients,medicaments);
-        addPrescriptionController.setMainController(mainController);
+        PrescriptionController.setData(staff,patients);
+        PrescriptionController.setMainController(mainController);
     }
 
     @FXML

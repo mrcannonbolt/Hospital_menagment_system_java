@@ -64,8 +64,15 @@ public class App extends Application{
             medicamentMap.put(med2, 1);
 
             Patient marek = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
+            Patient p2 = new Patient(2, "Mirek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
+            Patient p3 = new Patient(3, "Mariusz", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
+
             listOfObjects.add(marek);
+            listOfObjects.add(p2);
+            listOfObjects.add(p3);
             AppointmentManager.getInstance().addPatient(marek);
+            AppointmentManager.getInstance().addPatient(p2);
+            AppointmentManager.getInstance().addPatient(p3);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             marek.addPrescription(prescription1);
             marek.displayInfo();

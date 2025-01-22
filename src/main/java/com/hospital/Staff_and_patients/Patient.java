@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.hospital.Medicaments_and_Equipment.Prescription;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 public class Patient extends Person {
 
     private PatientStatus patientStatus;
@@ -35,9 +39,9 @@ public class Patient extends Person {
         medicalHistory.add(entry);
     }
 
-    public void getPrescriptions() {
-        for(Prescription prescription:prescriptions)
-            prescription.displayInfo();
+    public ObservableList<Prescription> getPrescriptions() {
+        ObservableList<Prescription> observablePrescriptionList = FXCollections.observableArrayList(prescriptions);
+        return observablePrescriptionList;
     }
 
     public void addPrescription(Prescription entry) {
@@ -59,12 +63,10 @@ public class Patient extends Person {
     }
     @Override
     public String toString() {
-        return "Informacje o pacjencie:\n" +
-                "ID: " + id + "\n" +
+        return  "ID: " + id + "\n" +
                 "Imię i nazwisko: " + name + "\n" +
                 "Płeć: " + gender + "\n" +
                 "Data urodzenia: " + dateOfBirth + "\n" +
-                "PESEL: " + pesel + "\n" +
-                "Status pacjenta: " + patientStatus + "\n";
+                "PESEL: " + pesel + "\n";
     }
 }

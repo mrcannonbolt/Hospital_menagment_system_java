@@ -34,5 +34,9 @@ public class PrescriptionList {
     public IntegerProperty countProperty() {
         return count;
     }
+
+    public String toString(){
+        return(id.getValue()+"     "+medicament.getValue()+"      "+type.getValue()+"      ilość:"+count.getValue());
+    }
 }
 

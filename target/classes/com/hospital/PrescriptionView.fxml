@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.PrescriptionViewController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="633.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="patientInfo" alignment="CENTER" prefHeight="132.0" prefWidth="560.0" text="Recepta pacjenta:" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+            <ListView fx:id="medicamentsList" prefHeight="285.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="149.0" prefWidth="560.0" spacing="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label fx:id="issuingDoctor" alignment="CENTER" text="Kto wystawił" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" spacing="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label fx:id="expirationDate" text="do kiedy ważne" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="pickupCode" alignment="CENTER" text="kod odbioru" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#closeWindow" text="Zamknij" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

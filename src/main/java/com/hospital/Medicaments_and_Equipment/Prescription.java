@@ -110,8 +110,8 @@ public class Prescription extends HospitalEntity {
         this.issuingDoctor = issuingDoctor;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public String getExpirationDate() {
+        return DATE_FORMAT.format(expirationDate);
     }
 
     public void setExpirationDate(Date expirationDate) {
@@ -120,5 +120,10 @@ public class Prescription extends HospitalEntity {
 
     public static List<Integer> getPickupCodesList() {
         return pickupCodesList;
+    }
+
+    public String toString()
+    {
+        return("Recepta wystawiona: " + DATE_FORMAT.format(date)+" Przez: "+ issuingDoctor.getName());
     }
 }

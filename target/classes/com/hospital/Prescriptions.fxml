@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.PrescriptionController">
+   <children>
+      <VBox accessibleRole="BUTTON" layoutY="-8.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER" spacing="100.0">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="600.0" text="Wyświetlanie recept pacjentów" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <HBox prefHeight="450.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="600.0" text="Wybierz pacjenta:" textAlignment="CENTER" />
+                        <ListView fx:id="patientList" prefHeight="400.0" prefWidth="470.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="600.0" text="Wybierz recepte:" textAlignment="CENTER" />
+                        <ListView fx:id="prescriptionList" prefHeight="400.0" prefWidth="602.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0" spacing="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backMenu" text="Wróć do menu" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
