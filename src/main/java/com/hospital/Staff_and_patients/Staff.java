@@ -40,25 +40,12 @@ public class Staff extends Person {
         this.password = password;
     }
 
-    public void displayInfo()
-    {
-        System.out.println(String.format(
-                "Imię i nazwisko: %s\n" +
-                        "Płeć: %s\n" +
-                        "PESEL: %s\n" +
-                        "Data urodzenia: %s\n" +
-                        "Stanowisko: %s\n",
-                name,gender,pesel,dateOfBirth,position
-        ));
-    }
-
     public String toString() {
-        return "Informacje o pracowniku:\n" +
-                "ID: " + id + "\n" +
-                "Imię i nazwisko: " + name + "\n" +
-                "Płeć: " + gender + "\n" +
-                "Data urodzenia: " + dateOfBirth + "\n" +
-                "PESEL: " + pesel + "\n" +
-                "Stanowisko: " + position + "\n";
+        return  "ID: " + id +
+                "   Imię i nazwisko: " + name + "\n" +
+                "Płeć: " + gender +
+                "   Data urodzenia: " + dateOfBirth + "\n" +
+                "PESEL: " + pesel +
+                "   Stanowisko: " + position + "\n";
     }
 }

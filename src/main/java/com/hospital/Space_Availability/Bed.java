@@ -14,13 +14,6 @@ public class Bed extends HospitalEntity{
     }
 
     @Override
-    public void displayInfo()
-    {
-        System.out.println("numer:"+name+"\n"+
-        "aktualny pacjent: "+currentPatient);
-    }
-
-    @Override
     public String toString() {
         if(currentPatient==null)
         {

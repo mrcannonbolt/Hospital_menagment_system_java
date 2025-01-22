@@ -7,7 +7,6 @@ import com.hospital.Medicaments_and_Equipment.Medicament;
 import com.hospital.Medicaments_and_Equipment.Prescription;
 import com.hospital.Medicaments_and_Equipment.PrescriptionList;
 import com.hospital.Staff_and_patients.Patient;
-import com.hospital.Staff_and_patients.Staff;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

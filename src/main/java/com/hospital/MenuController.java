@@ -6,7 +6,6 @@ import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,59 +50,59 @@ public class MenuController {
     @FXML
     public void configureMenu(Staff staff) {
         StaffPositions staffPosition = staff.getPosition();
-        medicalHistoryButton.setVisible(false);
-        addPatientButton.setVisible(false);
-        registerButton.setVisible(false);
-        visitButton.setVisible(false);
-        receiptButton.setVisible(false);
-        staffButton.setVisible(false);
+        medicalHistoryButton.setDisable(true);
+        addPatientButton.setDisable(true);
+        registerButton.setDisable(true);
+        visitButton.setDisable(true);
+        receiptButton.setDisable(true);
+        staffButton.setDisable(true);
         switch (staffPosition) {
             case NURSE:
-                addPatientButton.setVisible(true);
-                registerButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                addPatientButton.setDisable(false);
+                registerButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             case DOCTOR:
-                addPatientButton.setVisible(true);
-                registerButton.setVisible(true);
-                visitButton.setVisible(true);
-                receiptButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                addPatientButton.setDisable(false);
+                registerButton.setDisable(false);
+                visitButton.setDisable(false);
+                receiptButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             case SECRETARY:
-                registerButton.setVisible(true);
-                visitButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
-                receiptButton.setVisible(true);
+                registerButton.setDisable(false);
+                visitButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
+                receiptButton.setDisable(false);
                 break;
             case RESCUER:
-                registerButton.setVisible(true);
-                receiptButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                registerButton.setDisable(false);
+                receiptButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             case IT:
-                addPatientButton.setVisible(true);
-                registerButton.setVisible(true);
-                visitButton.setVisible(true);
-                receiptButton.setVisible(true);
-                staffButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                addPatientButton.setDisable(false);
+                registerButton.setDisable(false);
+                visitButton.setDisable(false);
+                receiptButton.setDisable(false);
+                staffButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             case IT_ADMIN:
-                addPatientButton.setVisible(true);
-                registerButton.setVisible(true);
-                visitButton.setVisible(true);
-                receiptButton.setVisible(true);
-                staffButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                addPatientButton.setDisable(false);
+                registerButton.setDisable(false);
+                visitButton.setDisable(false);
+                receiptButton.setDisable(false);
+                staffButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             case HOSPITAL_DIRECTOR:
-                addPatientButton.setVisible(true);
-                registerButton.setVisible(true);
-                visitButton.setVisible(true);
-                receiptButton.setVisible(true);
-                staffButton.setVisible(true);
-                medicalHistoryButton.setVisible(true);
+                addPatientButton.setDisable(false);
+                registerButton.setDisable(false);
+                visitButton.setDisable(false);
+                receiptButton.setDisable(false);
+                staffButton.setDisable(false);
+                medicalHistoryButton.setDisable(false);
                 break;
             default:
                 System.out.println("ERROR!");
@@ -114,13 +113,6 @@ public class MenuController {
     public void setUser(Staff staff) {
         this.staff=staff;
         configureMenu(staff);
-    }
-
-    //?????????????????????????
-    private void prepareDoctorAndPatientsLists() {
-        doctors = FXCollections.observableArrayList(AppointmentManager.getInstance().getStaffMembers());
-
-        patients = FXCollections.observableArrayList(AppointmentManager.getInstance().getPatients());
     }
 
     // Przygotowanie danych
@@ -229,7 +221,7 @@ public class MenuController {
         mainController.setScreen(anchorPane);
         BookAppointmentController bookAppointmentController = fxmlLoader.getController();
         bookAppointmentController.setMainController(mainController);
-        prepareDoctorAndPatientsLists();
+        prepareDate();
         bookAppointmentController.setData(staff, AppointmentManager.getInstance(),doctors,patients);
     }
 

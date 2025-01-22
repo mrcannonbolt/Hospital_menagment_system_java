@@ -7,26 +7,12 @@ import com.hospital.HospitalEntity;
 
 public class Department extends HospitalEntity{
 
-    List<Room> rooms;
+    private List<Room> rooms;
 
     public Department(int id,String name)
     {
         super(id,name);
         rooms = new ArrayList<>();
-    }
-
-    @Override
-    public void displayInfo() 
-    {
-        System.out.println
-        (
-            "Nazwa oddziału: "+this.name+"\n"+
-            "Sale na oddziale: "+"\n"
-        );
-        for (Room room : rooms) 
-            {
-                System.out.println(room);
-            }
     }
 
     @Override

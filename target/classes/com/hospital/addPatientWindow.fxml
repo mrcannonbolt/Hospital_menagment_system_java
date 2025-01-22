@@ -7,21 +7,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="449.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.AddPatientController">
+<AnchorPane prefHeight="600.0" styleClass="root" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.AddPatientController">
    <children>
-      <Label layoutX="287.0" layoutY="27.0" text="Dodaj pacjenta" />
-      <Button layoutX="263.0" layoutY="367.0" mnemonicParsing="false" onAction="#addPatient" text="Dodaj" />
-      <Button layoutX="344.0" layoutY="367.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
-      <DatePicker fx:id="patientDate" layoutX="391.0" layoutY="184.0" />
-      <TextField fx:id="patientName" layoutX="114.0" layoutY="98.0" />
-      <TextField fx:id="patientPESEL" layoutX="114.0" layoutY="184.0" />
-      <ComboBox fx:id="patientGender" layoutX="391.0" layoutY="98.0" prefWidth="150.0" />
-      <ComboBox fx:id="patientStatus" layoutX="252.0" layoutY="255.0" prefWidth="150.0" />
-      <Label layoutX="114.0" layoutY="81.0" text="Imię i nazwisko" />
-      <Label layoutX="114.0" layoutY="167.0" text="PESEL" />
-      <Label layoutX="388.0" layoutY="167.0" text="Data urodzenia" />
-      <Label layoutX="388.0" layoutY="81.0" text="Płeć" />
-      <Label layoutX="249.0" layoutY="238.0" text="Stan pacjenta" />
+      <Label layoutX="444.0" layoutY="36.0" text="Dodaj pacjenta" />
+      <Button layoutX="355.0" layoutY="512.0" mnemonicParsing="false" onAction="#addPatient" text="Dodaj" />
+      <Button layoutX="575.0" layoutY="512.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
+      <DatePicker fx:id="patientDate" layoutX="661.0" layoutY="301.0" prefHeight="31.0" prefWidth="200.0" />
+      <TextField fx:id="patientName" layoutX="117.0" layoutY="164.0" prefHeight="31.0" prefWidth="300.0" />
+      <TextField fx:id="patientPESEL" layoutX="167.0" layoutY="301.0" prefHeight="31.0" prefWidth="200.0" />
+      <ComboBox fx:id="patientGender" layoutX="661.0" layoutY="164.0" prefHeight="31.0" prefWidth="200.0" />
+      <ComboBox fx:id="patientStatus" layoutX="404.0" layoutY="367.0" prefHeight="31.0" prefWidth="200.0" />
+      <Label layoutX="213.0" layoutY="139.0" text="Imię i nazwisko" />
+      <Label layoutX="248.0" layoutY="276.0" text="PESEL" />
+      <Label layoutX="704.0" layoutY="276.0" text="Data urodzenia" />
+      <Label layoutX="746.0" layoutY="139.0" text="Płeć" />
+      <Label layoutX="450.0" layoutY="342.0" text="Stan pacjenta" />
    </children>
 </AnchorPane>

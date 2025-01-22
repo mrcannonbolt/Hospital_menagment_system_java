@@ -8,31 +8,14 @@ import com.hospital.Medicaments_and_Equipment.Equipment;
 
 public class Room extends HospitalEntity{
 
-    List<Bed> beds;
-    List<Equipment> equipments;
-    int capacity;
+    private List<Bed> beds;
+    private List<Equipment> equipments;
+    private int capacity;
 
     public Room(int id,String name)
     {
         super(id,name);
         beds = new ArrayList<>();
-    }
-
-    public void displayInfo()
-    {
-        System.out.println
-        (
-            "numer pokoju: "+name+"\n"+
-            "Sale na oddziale: "+"\n"
-        );
-        for (Bed bed : beds) 
-            {
-                System.out.println(bed);
-            }
-        for (Equipment equipment : equipments) 
-            {
-                System.out.println(equipment);
-            }
     }
 
     @Override
@@ -42,7 +25,10 @@ public class Room extends HospitalEntity{
             {
                output+=bed+"\n";
             }
-        output+="i osprzętowieniem:\n tutaj na razie jeszcze brakuje kodu";
+        for (Equipment equipment : equipments) 
+            {
+               output+=equipment+"\n";
+            }
         return output;
     }
 
@@ -50,4 +36,11 @@ public class Room extends HospitalEntity{
         beds.add(bed);
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 }

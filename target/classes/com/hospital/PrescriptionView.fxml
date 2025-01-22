@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.PrescriptionViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.PrescriptionViewController">
    <children>
       <VBox alignment="CENTER" prefHeight="633.0" prefWidth="600.0">
          <children>
-            <Label fx:id="patientInfo" alignment="CENTER" prefHeight="132.0" prefWidth="560.0" text="Recepta pacjenta:" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+            <Label fx:id="patientInfo" alignment="CENTER" prefHeight="120.0" prefWidth="560.0" text="Recepta pacjenta:" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
             <ListView fx:id="medicamentsList" prefHeight="285.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <HBox alignment="CENTER" prefHeight="149.0" prefWidth="560.0" spacing="200.0" VBox.vgrow="ALWAYS">
                <children>

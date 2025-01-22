@@ -49,25 +49,6 @@ public class Prescription extends HospitalEntity {
         return assignNumber;
     }
 
-    public void displayInfo() {
-        System.out.println("\n" +"Doktor wystawiający: " + issuingDoctor);
-        System.out.println("Data wystawienia: " + DATE_FORMAT.format(date));
-        System.out.println("Data ważności recepty: " + DATE_FORMAT.format(expirationDate));
-        System.out.println("Kod odbioru: "+ pickupCode);
-        System.out.println("Lista leków na recepcie:");
-        for (Map.Entry<Medicament, Integer> entry : medicaments.entrySet()) {
-            Medicament medicament = entry.getKey();
-            Integer quantity = entry.getValue();
-            System.out.println(String.format(
-                            "Nazwa leku: %s" +
-                            ", Ilość: %d" +
-                            ", Rodzaj leku: %s",
-                    medicament.getName(), quantity, medicament.getTypeOfMedicament()
-            ));
-        }
-
-    }
-
     public void addMedicament(Medicament medicament, int quantity) {
             medicaments.put(medicament, quantity);
     }

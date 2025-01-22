@@ -44,7 +44,6 @@ public class PrescriptionController {
             if (event.getClickCount() == 2) { // Podwójne kliknięcie
                 Prescription chosePrescription = prescriptionList.getSelectionModel().getSelectedItem();
                 if (chosePrescription != null) {
-                    System.out.println("to działa");
                     openPrescriptionViewWindow(chosePrescription);
                 }
             }
@@ -66,12 +65,12 @@ public class PrescriptionController {
         // Ustaw scenę i pokaż okno
         stage.setScene(new Scene(root));
         stage.setTitle("Szczegóły recepty");
+        stage.setResizable(false);
         stage.show();
     } catch (IOException e) {
         e.printStackTrace();
     }
     }
-
 
     public void setPrescriptionList(Patient patient) {
         this.prescriptionList.setItems(patient.getPrescriptions());

@@ -35,18 +35,16 @@ public class App extends Application{
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("MainScene.fxml"));
         StackPane stackPane = fxmlLoader.load();
-        Scene scene = new Scene(stackPane, 900, 600);
+        Scene scene = new Scene(stackPane, 1000, 600);
         stage.setTitle("Aplikacja szpitala");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
         try
         {
             Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
-            Staff doctor1 = new Staff(1,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
-            Staff admin1 = new Staff(1,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
-            AppointmentManager.getInstance().addStaffMember(rescuer1);
-            AppointmentManager.getInstance().addStaffMember(doctor1);
-            AppointmentManager.getInstance().addStaffMember(admin1);
+            Staff doctor1 = new Staff(2,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
+            Staff admin1 = new Staff(3,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
@@ -54,33 +52,37 @@ public class App extends Application{
             listOfObjects.add(doctor1);
             listOfObjects.add(rescuer1);
             listOfObjects.add(admin1);
-            Medicament med1= new Medicament(2, "Apap extra", TypeOfMedicament.TABLETS);
-            Medicament med2= new Medicament(3, "Ibuprom", TypeOfMedicament.INJECTION);
-            listOfObjects.add(med1);
-            listOfObjects.add(med2);
+            Medicament med1 = new Medicament(1, "Paracetamol", TypeOfMedicament.TABLETS);
+            Medicament med2 = new Medicament(2, "Ibuprofen", TypeOfMedicament.CAPSULES);
+            Medicament med3 = new Medicament(3, "Ambroksol", TypeOfMedicament.SYRUP);
+            Medicament med4 = new Medicament(4, "Hydrokortyzon", TypeOfMedicament.OINTMENT);
+            Medicament med5 = new Medicament(5, "Diklofenak", TypeOfMedicament.GEL);
+            Medicament med6 = new Medicament(6, "Amoksycylina", TypeOfMedicament.SUSPENSION);
+            Medicament med7 = new Medicament(7, "Salbutamol", TypeOfMedicament.AEROSOL);
+            Medicament med8 = new Medicament(8, "Metronidazol", TypeOfMedicament.INJECTION);
+            Medicament med9 = new Medicament(9, "Bisakodyl", TypeOfMedicament.SUPPOSITORIES);
+            Medicament med10 = new Medicament(10, "Omeprazol", TypeOfMedicament.GRANULES);
+            Medicament med11 = new Medicament(11, "Ketoprofen", TypeOfMedicament.GEL);
+            Medicament med12 = new Medicament(12, "Magnez", TypeOfMedicament.TABLETS);
+            Medicament med13 = new Medicament(13, "Klemastyna", TypeOfMedicament.SYRUP);
+            Medicament med14 = new Medicament(14, "Furosemid", TypeOfMedicament.INJECTION);
+            Medicament med15 = new Medicament(15, "Witamina C", TypeOfMedicament.GRANULES);
 
             Map<Medicament, Integer> medicamentMap = new HashMap<>();
-            medicamentMap.put(med1, 2);
-            medicamentMap.put(med2, 1);
 
-            Patient marek = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
+            Patient p1 = new Patient(1, "Marek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.CRITICAL_CONDITION);
             Patient p2 = new Patient(2, "Mirek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
             Patient p3 = new Patient(3, "Mariusz", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
 
-            listOfObjects.add(marek);
+            listOfObjects.add(p1);
             listOfObjects.add(p2);
             listOfObjects.add(p3);
-            AppointmentManager.getInstance().addPatient(marek);
-            AppointmentManager.getInstance().addPatient(p2);
-            AppointmentManager.getInstance().addPatient(p3);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
-            marek.addPrescription(prescription1);
-            marek.displayInfo();
-            marek.getPrescriptions();
-            doctor1.displayInfo();
+            p1.addPrescription(prescription1);
+            p1.getPrescriptions();
             AppointmentManager appointmentManager = AppointmentManager.getInstance();
-            appointmentManager.bookAppointment(doctor1,marek, LocalDateTime.of(2024,12,26,10,30),"Wizyta kontrolna");
-            appointmentManager.bookAppointment(doctor1,marek, LocalDateTime.of(2024,12,26,10,31),"Wizyta kontrolna");
+            appointmentManager.bookAppointment(doctor1,p1, LocalDateTime.of(2024,12,26,10,30),"Wizyta kontrolna");
+            appointmentManager.bookAppointment(doctor1,p1, LocalDateTime.of(2024,12,26,10,31),"Wizyta kontrolna");
             appointmentManager.getAllAppointments();
             /////////////////////////////////// testy sale ///////////////////////////////////////////////
             Bed bed1= new Bed(1,"1");
@@ -96,10 +98,9 @@ public class App extends Application{
             room1.addBed(bed1);
             room1.addBed(bed2);
             room2.addBed(bed3);
-            bed1.assignPatient(marek);
+            bed1.assignPatient(p1);
 
             System.out.println("\n");
-            department1.displayInfo();
 
         }
         catch (IllegalArgumentException e)

@@ -1,6 +1,5 @@
 package com.hospital;
 
-import com.hospital.Appointments.AppointmentManager;
 import com.hospital.Staff_and_patients.Gender;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.PatientStatus;
@@ -16,7 +15,7 @@ import java.time.LocalDate;
 
 public class AddPatientController {
 
-    private int lastId=0;
+    private int lastId=3;
 
     @FXML
     private MainController mainController;
@@ -71,7 +70,7 @@ public class AddPatientController {
         }
         try {
             Patient newPatient = new Patient(idGenerator(), name, gender, birthDate, pesel, status);
-            AppointmentManager.getInstance().addPatient(newPatient);
+            App.listOfObjects.add(newPatient);
             showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {
             // Obsługa błędów walidacji PESEL

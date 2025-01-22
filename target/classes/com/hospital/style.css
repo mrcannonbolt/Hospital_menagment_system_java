@@ -1,4 +1,4 @@
-/* Styl dla całego okna */
+/* Styl dla AnchorPane */
 .root {
     -fx-background-color: #2b2b2b; /* ciemne tło */
     -fx-padding: 20px;
@@ -6,7 +6,7 @@
 
 /* Styl dla przycisków */
 .button {
-    -fx-background-color: linear-gradient(#4CAF50, #2E7D32); /* gradient zieleni */
+    -fx-background-color: linear-gradient(#424242, #616161); /* gradient szarości */
     -fx-text-fill: white; /* białe napisy */
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -16,8 +16,63 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
 }
 
+.image-view {
+    -fx-background-size: cover; /* dopasowanie obrazu do rozmiaru kontenera */
+    -fx-background-position: center; /* wyśrodkowanie obrazu */
+    -fx-border-radius: 10px; /* zaokrąglenie rogów */
+    -fx-border-color: #ffffff; /* kolor obramowania */
+    -fx-border-width: 3px; /* grubość obramowania */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 4, 4); /* cień pod obrazkiem */
+    -fx-padding: 5px; /* przestrzeń między obrazem a obramowaniem */
+}
+
 .button:hover {
-    -fx-background-color: linear-gradient(#66BB6A, #43A047); /* jaśniejszy gradient przy najechaniu */
+    -fx-background-color: linear-gradient(#616161, #424242); /* jaśniejszy gradient przy najechaniu */
+}
+
+/* Styl dla pól tekstowych */
+.text-field{
+    -fx-background-color: #616161; /* gradient szarości */
+    -fx-text-fill: white; /* białe napisy */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px; /* zaokrąglenie rogów */
+    -fx-padding: 10px 15px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.text-area {
+    -fx-background-color: #616161; /* gradient szarości */
+    -fx-control-inner-background: #616161; /* tło wewnętrzne */
+    -fx-text-fill: white; /* kolor tekstu */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px; /* zaokrąglenie rogów */
+    -fx-padding: 0px; /* usuń dodatkowe wypełnienie */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0px; /* usuń marginesy wewnętrzne */
+    -fx-prompt-text-fill: #A9A9A9; /* kolor tekstu domyślnego */
+}
+
+.text-field:focused{
+    -fx-border-color: #424242; /* Jaśniejszy obrys przy focusie */
+}
+
+/* Styl dla DatePicker */
+.date-picker {
+    -fx-background-color: linear-gradient(#424242, #616161); /* gradient szarości */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.date-picker:focused {
+    -fx-border-color: #424242; /* Jaśniejszy obrys przy focusie */
 }
 
 /* Styl dla list */
@@ -30,17 +85,92 @@
 
 .list-view .list-cell {
     -fx-text-fill: #FFFFFF; /* biały tekst */
+    -fx-background-color: #616161; /* ciemnoszare tło */
     -fx-font-size: 14px;
     -fx-padding: 10px;
 }
 
 .list-view .list-cell:hover {
-    -fx-background-color: #616161; /* jaśniejsze tło przy najechaniu */
+    -fx-background-color: #424242; /* jaśniejsze tło przy najechaniu */
 }
 
-/* Styl dla tła i tekstu w nagłówkach */
-.label {
-    -fx-text-fill: #FFFFFF; /* biały tekst */
+.list-view .list-cell:selected {
+    -fx-background-color: #424242; /* Zielone tło dla wybranego elementu */
+    -fx-text-fill: white; /* Biały tekst */
+}
+
+/* Styl dla ComboBox */
+.combo-box {
+    -fx-background-color: #424242; /* Ciemnoszare tło */
+    -fx-text-fill: white; /* Biały tekst */
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-color: #616161; /* Szary obrys */
+    -fx-border-radius: 5px; /* Zaokrąglone rogi */
+    -fx-background-radius: 5px; /* Zaokrąglone rogi */
+}
+
+/* Styl dla rozwijanego menu */
+.combo-box-popup {
+    -fx-background-color: #424242; /* Ciemnoszare tło */
+    -fx-border-color: #616161; /* Szary obrys */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* Styl dla komórek wewnątrz rozwijanego menu */
+.combo-box .list-cell {
+    -fx-text-fill: #FFFFFF; /* Biały tekst */
+    -fx-background-color: #424242;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
+
+/* Efekt przy najechaniu na komórkę */
+.combo-box .list-cell:hover {
+    -fx-background-color: #616161; /* Jaśniejsze tło */
+}
+
+/* Styl wybranego elementu */
+.combo-box .list-cell:selected {
+    -fx-background-color: #424242; /* Zielone tło dla wybranego elementu */
+    -fx-text-fill: white; /* Biały tekst */
+}
+
+/* Styl dla TableView */
+.table-view {
+    -fx-background-color: #424242; /* Ciemnoszare tło */
+    -fx-border-color: #616161; /* Szary obrys */
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #616161; /* Tło nagłówków */
+    -fx-text-fill: white; /* Biały tekst */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.table-view .cell {
+    -fx-text-fill: white; /* Biały tekst */
+    -fx-background-color: #424242; /* Ciemnoszare tło */
+    -fx-font-size: 14px;
+    -fx-border-color: #616161; /* Oddzielenie kolumn */
+    -fx-border-width: 0 1px 0 0; /* Prawy obrys */
+}
+
+.table-view .cell:hover {
+    -fx-background-color: #616161; /* Jaśniejsze tło przy najechaniu */
+}
+
+.label{
     -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.check-box{
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
 }

@@ -34,7 +34,7 @@ public abstract class HospitalEntity{
     }
 
     protected static <T> ObservableList<T> filterAndConvertToObservableList(List<?> list, Class<T> type) {
-        // Filtrujemy elementy danego typu i konwertujemy do ObservableList
+
         List<T> filteredList = list.stream()
                                    .filter(type::isInstance)
                                    .map(type::cast)
@@ -43,5 +43,4 @@ public abstract class HospitalEntity{
         return FXCollections.observableArrayList(filteredList);
     }
 
-    public abstract void displayInfo();
 }

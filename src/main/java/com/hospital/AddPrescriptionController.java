@@ -14,8 +14,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -25,7 +25,7 @@ public class AddPrescriptionController {
     
     private MainController mainController;
     @FXML
-    private ComboBox<Patient> prescriptionPatient;
+    private ListView<Patient> prescriptionPatient;
     @FXML
     private ComboBox<Medicament> prescriptionMedicaments;
     @FXML
@@ -94,7 +94,7 @@ public class AddPrescriptionController {
 
             if (selectedMedicament != null && count > 0) {
                 if(prescription.getMedicaments().containsKey(selectedMedicament)){
-                    showAlert(Alert.AlertType.WARNING, "Taki lek już istnieje na recepcie");
+                    showAlert("Błąd","Taki lek już istnieje na recepcie",Alert.AlertType.WARNING);
                 }
                 else{
                     prescription.addMedicament(selectedMedicament, count);
@@ -107,25 +107,29 @@ public class AddPrescriptionController {
                 }
 
             } else {
-                showAlert(Alert.AlertType.WARNING, "Podaj wartość liczbową leku");
+                showAlert("Błąd","Podaj wartość liczbową leku",Alert.AlertType.WARNING);
             }
         } catch (NumberFormatException e) {
-            showAlert(Alert.AlertType.WARNING, "Podaj ilość przypisywanego leku");
+            showAlert("Błąd","Podaj ilość przypisywanego leku",Alert.AlertType.WARNING);
         }
     }
 
     @FXML
     public void confirmPrescription(){
         if (prescriptionPatient == null || tableData.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Proszę uzupełnić wszystkie pola.");
+            showAlert("Błąd","Proszę uzupełnić wszystkie pola.",Alert.AlertType.WARNING);
             return;
         }
-        prescriptionPatient.getValue().addPrescription(prescription);
+        prescriptionPatient.getSelectionModel().getSelectedItem().addPrescription(prescription);
+        showAlert("Sukces","Udało się dodać nową receptę",Alert.AlertType.INFORMATION);
         mainController.backToMenuScreen(staff);
     }
 
-    private void showAlert(Alert.AlertType type, String message) {
-        Alert alert = new Alert(type, message, ButtonType.OK);
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 

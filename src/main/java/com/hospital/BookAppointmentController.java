@@ -13,9 +13,9 @@ import java.time.LocalTime;
 public class BookAppointmentController {
     private MainController mainController;
     @FXML
-    private ComboBox<Staff> appointStaff;
+    private ListView<Staff> appointStaff;
     @FXML
-    private ComboBox<Patient> appointPatient;
+    private ListView<Patient> appointPatient;
     @FXML
     private DatePicker appointDate;
     @FXML
@@ -40,8 +40,8 @@ public class BookAppointmentController {
 
     @FXML
     private void bookAppointment() {
-        Staff doctor = appointStaff.getValue();
-        Patient patient = appointPatient.getValue();
+        Staff doctor = appointStaff.getSelectionModel().getSelectedItem();
+        Patient patient = appointPatient.getSelectionModel().getSelectedItem();
         LocalDate date = appointDate.getValue();
         String timeText = appointHour.getText();
         String description = appointDescription.getText();

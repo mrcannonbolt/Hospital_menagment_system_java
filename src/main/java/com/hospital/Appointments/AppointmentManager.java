@@ -2,8 +2,6 @@ package com.hospital.Appointments;
 
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,14 +14,9 @@ public class AppointmentManager {
 
     private List<Appointment> appointments;
 
-    private ObservableList<Staff> staffMembers;
-
-    private ObservableList<Patient> patients;
 
     private AppointmentManager() {
         appointments = new ArrayList<>();
-        staffMembers = FXCollections.observableArrayList();
-        patients = FXCollections.observableArrayList();
     }
 
     public static AppointmentManager getInstance() {
@@ -33,22 +26,6 @@ public class AppointmentManager {
         return instance;
     }
 
-    public void addStaffMember(Staff staff) {
-        staffMembers.add(staff);
-    }
-
-    public void addPatient(Patient patient) {
-        patients.add(patient);
-    }
-
-    public ObservableList<Staff> getStaffMembers() {
-        return staffMembers;
-    }
-
-    public ObservableList<Patient> getPatients() {
-        return patients;
-    }
-
     public boolean bookAppointment(Staff doctor, Patient patient, LocalDateTime dateTime, String description) {
         // Sprawdzanie, czy termin jest już zajęty
         for (Appointment appointment : appointments) {
@@ -56,7 +33,6 @@ public class AppointmentManager {
                 return false; // Termin zajęty
             }
         }
-
         // Dodanie nowej wizyty
         Appointment newAppointment = new Appointment(doctor, patient, dateTime, description);
         appointments.add(newAppointment);

@@ -1,5 +1,6 @@
 package com.hospital.Medicaments_and_Equipment;
 
+import com.hospital.App;
 import com.hospital.HospitalEntity;
 
 public class Medicament extends HospitalEntity{
@@ -9,6 +10,7 @@ public class Medicament extends HospitalEntity{
     {
         super(id, name);
         this.typeOfMedicament =typeOfMedicament;
+        App.listOfObjects.add(this);
     }
 
     public void setTypeOfMedicament(TypeOfMedicament typeOfMedicament) {
@@ -17,11 +19,6 @@ public class Medicament extends HospitalEntity{
 
     public TypeOfMedicament getTypeOfMedicament() {
         return typeOfMedicament;
-    }
-
-    public void displayInfo()
-    {
-        System.out.println(name);
     }
 
     @Override

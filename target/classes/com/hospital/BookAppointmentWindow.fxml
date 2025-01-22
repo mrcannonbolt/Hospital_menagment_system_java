@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="452.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.BookAppointmentController">
+<AnchorPane prefHeight="600.0" styleClass="root" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.BookAppointmentController">
    <children>
-      <Label layoutX="291.0" layoutY="25.0" text="System umawiania wizyt" />
-      <ComboBox fx:id="appointStaff" layoutX="141.0" layoutY="67.0" prefWidth="150.0" visibleRowCount="3" />
-      <ComboBox fx:id="appointPatient" layoutX="420.0" layoutY="67.0" prefWidth="150.0" visibleRowCount="3" />
-      <DatePicker fx:id="appointDate" layoutX="117.0" layoutY="139.0" promptText="DD.MM.RRRR" />
-      <TextField fx:id="appointHour" layoutX="421.0" layoutY="139.0" promptText="HH:mm" />
-      <TextArea fx:id="appointDescription" layoutX="117.0" layoutY="219.0" prefHeight="146.0" prefWidth="454.0" promptText="Jaki cel ma wizyta np. operacja, wizyta kontrolna, zabieg, badanie itp." />
-      <Button layoutX="268.0" layoutY="390.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
-      <Button layoutX="334.0" layoutY="390.0" mnemonicParsing="false" onAction="#bookAppointment" text="Umów wizytę" />
-      <Label layoutX="141.0" layoutY="50.0" text="Lekarz" />
-      <Label layoutX="421.0" layoutY="50.0" text="Pacjent" />
-      <Label layoutX="117.0" layoutY="122.0" text="Data" />
-      <Label layoutX="421.0" layoutY="122.0" text="Godzina" />
-      <Label layoutX="116.0" layoutY="202.0" text="Opis wizyty" />
+      <Label layoutX="421.0" layoutY="25.0" text="System umawiania wizyt" />
+      <DatePicker fx:id="appointDate" layoutX="155.0" layoutY="300.0" prefHeight="31.0" prefWidth="200.0" promptText="DD.MM.RRRR" />
+      <TextField fx:id="appointHour" layoutX="647.0" layoutY="300.0" prefHeight="31.0" prefWidth="200.0" promptText="HH:mm" />
+      <TextArea fx:id="appointDescription" layoutX="272.0" layoutY="368.0" prefHeight="146.0" prefWidth="484.0" promptText="Jaki cel ma wizyta np. operacja, wizyta kontrolna, zabieg, badanie itp." />
+      <Button layoutX="350.0" layoutY="525.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
+      <Button layoutX="570.0" layoutY="525.0" mnemonicParsing="false" onAction="#bookAppointment" text="Umów wizytę" />
+      <Label layoutX="230.0" layoutY="67.0" text="Lekarz" />
+      <Label layoutX="710.0" layoutY="67.0" text="Pacjent" />
+      <Label layoutX="237.0" layoutY="275.0" text="Data" />
+      <Label layoutX="716.0" layoutY="272.0" text="Godzina" />
+      <Label layoutX="470.0" layoutY="343.0" text="Opis wizyty" />
+      <ListView fx:id="appointStaff" layoutX="29.0" layoutY="97.0" prefHeight="170.0" prefWidth="450.0" />
+      <ListView fx:id="appointPatient" layoutX="513.0" layoutY="97.0" prefHeight="170.0" prefWidth="450.0" />
    </children>
 </AnchorPane>

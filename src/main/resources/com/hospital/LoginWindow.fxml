@@ -4,18 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.LoginController">
+<AnchorPane maxHeight="-Infinity" styleClass="root" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.LoginController">
    <children>
-      <PasswordField fx:id="passwordField" layoutX="262.0" layoutY="226.0" />
-      <TextField fx:id="loginField" layoutX="262.0" layoutY="163.0" />
-      <Label layoutX="238.0" layoutY="59.0" text="Witamy w systemie naszego Szpitala!" />
-      <Label layoutX="262.0" layoutY="146.0" text="Login" />
-      <Label layoutX="262.0" layoutY="209.0" text="Hasło" />
-      <Button layoutX="383.0" layoutY="344.0" mnemonicParsing="false" onAction="#tryToLoginUser" text="Zaloguj" />
-      <Label fx:id="wrongPasswordLabel" alignment="TOP_CENTER" layoutX="264.0" layoutY="278.0" prefHeight="11.0" prefWidth="149.0" />
-      <Button layoutX="238.0" layoutY="344.0" mnemonicParsing="false" onAction="#tryToExitProgram" text="Wyjdź" />
-      <Label layoutX="322.0" layoutY="269.0" prefHeight="17.0" prefWidth="0.0" />
+      <PasswordField fx:id="passwordField" layoutX="64.0" layoutY="402.0" prefHeight="31.0" prefWidth="400.0" />
+      <TextField fx:id="loginField" layoutX="65.0" layoutY="251.0" prefHeight="31.0" prefWidth="400.0" />
+      <Label layoutX="124.0" layoutY="123.0" text="Witamy w systemie naszego Szpitala!" />
+      <Label layoutX="243.0" layoutY="226.0" text="Login" />
+      <Label layoutX="243.0" layoutY="374.0" text="Hasło" />
+      <Button layoutX="333.0" layoutY="516.0" mnemonicParsing="false" onAction="#tryToLoginUser" text="Zaloguj" />
+      <Label fx:id="wrongPasswordLabel" alignment="TOP_CENTER" layoutX="190.0" layoutY="445.0" textFill="RED" />
+      <Button layoutX="124.0" layoutY="516.0" mnemonicParsing="false" onAction="#tryToExitProgram" prefHeight="40.0" prefWidth="80.0" text="Wyjdź" />
+      <ImageView fitHeight="537.0" fitWidth="467.0" layoutX="505.0" layoutY="23.0">
+         <image>
+            <Image url="@logo.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

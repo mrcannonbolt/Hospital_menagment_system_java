@@ -48,25 +48,12 @@ public class Patient extends Person {
         prescriptions.add(entry);
     }
 
-    public void displayInfo()
-    {
-        System.out.println(String.format(
-            "Informacje o pacjencie:\n" +
-            "Imię: %s\n" +
-            "Płeć: %s\n" +
-            "Data urodzenia: %s\n" +
-            "PESEL: %s\n" +
-            "Status pacjenta: %s",
-            name, gender, dateOfBirth,pesel, patientStatus
-        ));
-        
-    }
     @Override
     public String toString() {
-        return  "ID: " + id + "\n" +
-                "Imię i nazwisko: " + name + "\n" +
-                "Płeć: " + gender + "\n" +
-                "Data urodzenia: " + dateOfBirth + "\n" +
-                "PESEL: " + pesel + "\n";
+        return  "ID: " + id +
+                "   Imię i nazwisko: " + name + "\n" +
+                "Płeć: " + gender + 
+                "   Data urodzenia: " + dateOfBirth + "\n" +
+                "PESEL: " + pesel;
     }
 }

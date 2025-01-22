@@ -6,17 +6,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.DoctorAppointmentsController">
+<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.DoctorAppointmentsController">
    <children>
-      <Label layoutX="347.0" layoutY="26.0" text="Wizyty na dziś" />
-      <TableView fx:id="appointmentsTable" layoutX="85.0" layoutY="70.0" prefHeight="200.0" prefWidth="600.0">
+      <Label layoutX="440.0" layoutY="35.0" text="Wizyty na dziś" />
+      <TableView fx:id="appointmentsTable" layoutX="51.0" layoutY="68.0" prefHeight="430.0" prefWidth="886.0">
         <columns>
-          <TableColumn fx:id="patientColumn" prefWidth="200.0" text="Pacjent" />
-          <TableColumn fx:id="dateColumn" prefWidth="200.0" text="Data i godzina" />
-            <TableColumn fx:id="descriptionColumn" prefWidth="200.0" text="Opis" />
+          <TableColumn fx:id="patientColumn" prefWidth="210.0" resizable="false" text="Pacjent" />
+          <TableColumn fx:id="dateColumn" prefWidth="190.0" resizable="false" text="Data i godzina" />
+            <TableColumn fx:id="descriptionColumn" maxWidth="482.0" minWidth="482.0" prefWidth="482.0" resizable="false" text="Opis" />
         </columns>
       </TableView>
-      <Button layoutX="451.0" layoutY="325.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
-      <Button fx:id="refreshAppointments" layoutX="256.0" layoutY="325.0" mnemonicParsing="false" text="Odśwież" />
+      <Button layoutX="549.0" layoutY="527.0" mnemonicParsing="false" onAction="#backMenu" prefWidth="100.0" text="Menu" />
+      <Button fx:id="refreshAppointments" layoutX="340.0" layoutY="527.0" mnemonicParsing="false" prefWidth="100.0" text="Odśwież" />
    </children>
 </AnchorPane>

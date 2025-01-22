@@ -3,7 +3,6 @@ package com.hospital.Staff_and_patients;
 import com.hospital.HospitalEntity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Person extends HospitalEntity {
 
@@ -47,7 +46,7 @@ public class Person extends HospitalEntity {
     }
 
     public void setPesel(String pesel) {
-        this.pesel = this.pesel;
+        this.pesel = pesel;
     }
 
     public LocalDate getDateOfBirth() {
@@ -57,19 +56,5 @@ public class Person extends HospitalEntity {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
-    @Override
-    public void displayInfo()
-        {
-            System.out.println(String.format(
-                    "Informacje o człowieku:\n" +
-                            "Imię: %s\n" +
-                            "Płeć: %s\n" +
-                            "Data urodzenia: %s\n" +
-                            "PESEL: %s",
-                    name, gender, dateOfBirth, pesel
-            ));
-
-        }
 
 }

@@ -11,12 +11,12 @@ public class Equipment extends HospitalEntity{
         this.type = type;
     }
 
-    public void displayInfo() {
-        
-        System.out.println(
-            name+"/n"+
-            "typ:"+type
-        );
+    public void setType(TypeOfEquipment type) {
+        this.type = type;
     }
 
+    public TypeOfEquipment getType() {
+        return type;
+    }
+    
 }
