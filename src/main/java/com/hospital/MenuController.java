@@ -193,6 +193,7 @@ public class MenuController {
         mainController.setScreen(anchorPane);
         StaffManagementController staffManagementController = fxmlLoader.getController();
         staffManagementController.setMainController(mainController);
+        staffManagementController.setUser(staff);
     }
 
     @FXML
@@ -234,7 +235,17 @@ public class MenuController {
 
     @FXML
     public void runRegisteringPatient() {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("registerPatientInHospital.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        RegisterPatientInHospitalController registerPatientInHospitalController = fxmlLoader.getController();
+        registerPatientInHospitalController.setMainController(mainController);
+        registerPatientInHospitalController.setData(staff);
     }
 
     @FXML

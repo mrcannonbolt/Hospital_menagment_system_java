@@ -11,8 +11,8 @@
 <AnchorPane prefHeight="452.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.BookAppointmentController">
    <children>
       <Label layoutX="291.0" layoutY="25.0" text="System umawiania wizyt" />
-      <ComboBox fx:id="appointStaff" layoutX="141.0" layoutY="67.0" prefWidth="150.0" />
-      <ComboBox fx:id="appointPatient" layoutX="420.0" layoutY="67.0" prefWidth="150.0" />
+      <ComboBox fx:id="appointStaff" layoutX="141.0" layoutY="67.0" prefWidth="150.0" visibleRowCount="3" />
+      <ComboBox fx:id="appointPatient" layoutX="420.0" layoutY="67.0" prefWidth="150.0" visibleRowCount="3" />
       <DatePicker fx:id="appointDate" layoutX="117.0" layoutY="139.0" promptText="DD.MM.RRRR" />
       <TextField fx:id="appointHour" layoutX="421.0" layoutY="139.0" promptText="HH:mm" />
       <TextArea fx:id="appointDescription" layoutX="117.0" layoutY="219.0" prefHeight="146.0" prefWidth="454.0" promptText="Jaki cel ma wizyta np. operacja, wizyta kontrolna, zabieg, badanie itp." />

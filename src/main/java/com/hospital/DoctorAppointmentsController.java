@@ -46,7 +46,7 @@ public class DoctorAppointmentsController {
 
     @FXML
     public void backMenu() {
-        mainController.bactToMenuScreen(loggedInDoctor);
+        mainController.backToMenuScreen(loggedInDoctor);
     }
 
     public void setMainController(MainController mainController) {
