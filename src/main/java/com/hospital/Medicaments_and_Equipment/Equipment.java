@@ -1,5 +1,6 @@
 package com.hospital.Medicaments_and_Equipment;
 
+import com.hospital.App;
 import com.hospital.HospitalEntity;
 
 public class Equipment extends HospitalEntity{

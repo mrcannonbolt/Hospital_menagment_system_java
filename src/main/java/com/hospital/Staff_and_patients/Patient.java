@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hospital.Medicaments_and_Equipment.Prescription;
+import com.hospital.Space_Availability.Bed;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ public class Patient extends Person {
     private PatientStatus patientStatus;
     private List<String> medicalHistory;
     private List<Prescription> prescriptions;
+    private Bed assignedBed;
 
     public Patient(int id, String name, Gender gender, LocalDate dateOfBirth, String pesel, PatientStatus patientStatus)
     {
@@ -56,4 +58,13 @@ public class Patient extends Person {
                 "   Data urodzenia: " + dateOfBirth + "\n" +
                 "PESEL: " + pesel;
     }
+
+    public void setAssignedBed(Bed assignedBed) {
+        this.assignedBed = assignedBed;
+    }
+
+    public Bed getAssignedBed() {
+        return assignedBed;
+    }
+    
 }

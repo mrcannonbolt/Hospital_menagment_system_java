@@ -7,37 +7,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="600.0" styleClass="root" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.RegisterPatientInHospitalController">
+<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.RegisterPatientInHospitalController">
    <children>
       <Label layoutX="383.0" layoutY="14.0" text="Rejestracja pacjenta w szpitalu:" />
       <Label layoutX="237.0" layoutY="83.0" text="Pacjent" />
       <Button layoutX="555.0" layoutY="542.0" mnemonicParsing="false" onAction="#registerPatient" text="Zarejestruj pacjenta" />
       <Button layoutX="349.0" layoutY="542.0" mnemonicParsing="false" onAction="#backMenu" text="Menu" />
-      <ListView layoutX="57.0" layoutY="108.0" prefHeight="400.0" prefWidth="416.0" />
+      <ListView fx:id="registeringPatient" layoutX="57.0" layoutY="108.0" prefHeight="400.0" prefWidth="416.0" />
       <VBox alignment="CENTER" layoutX="484.0" layoutY="100.0" prefHeight="400.0" prefWidth="464.0" spacing="25.0">
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="303.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Oddział" />
-                  <ComboBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <ComboBox fx:id="departmentPatient" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Sala" />
-                  <ComboBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <ComboBox fx:id="roomPatient" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Łóżko" />
-                  <ComboBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <ComboBox fx:id="bedPatient" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Stan pacjenta" />
-                  <ComboBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <ComboBox fx:id="patientStatus" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </children>

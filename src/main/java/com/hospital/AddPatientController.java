@@ -73,7 +73,6 @@ public class AddPatientController {
             App.listOfObjects.add(newPatient);
             showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {
-            // Obsługa błędów walidacji PESEL
             showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);
         }
 

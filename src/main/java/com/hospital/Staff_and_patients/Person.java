@@ -17,10 +17,19 @@ public class Person extends HospitalEntity {
         if (!isValidPesel(pesel)) {
             throw new IllegalArgumentException("Niepoprawny numer PESEL");
         }
+        if (!isValidDateOfBirth(dateOfBirth)) {
+            throw new IllegalArgumentException("Data urodzenia nie może być z przyszłości");
+        }
         this.gender = gender;
         this.dateOfBirth=dateOfBirth;
         this.pesel = pesel;
     }
+
+
+    private boolean isValidDateOfBirth(LocalDate dateOfBirth) {
+        return dateOfBirth != null && !dateOfBirth.isAfter(LocalDate.now());
+    }
+
     private boolean isValidPesel(String pesel) {
         return isCorrectLength(pesel) && isNumeric(pesel);
     }
@@ -46,6 +55,9 @@ public class Person extends HospitalEntity {
     }
 
     public void setPesel(String pesel) {
+        if (!isValidPesel(pesel)) {
+            throw new IllegalArgumentException("Niepoprawny numer PESEL");
+        }
         this.pesel = pesel;
     }
 
@@ -54,6 +66,9 @@ public class Person extends HospitalEntity {
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
+        if (!isValidDateOfBirth(dateOfBirth)) {
+            throw new IllegalArgumentException("Data urodzenia nie może być z przyszłości");
+        }
         this.dateOfBirth = dateOfBirth;
     }
 

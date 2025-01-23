@@ -20,16 +20,7 @@ public class Room extends HospitalEntity{
 
     @Override
     public String toString() {
-        String output="pokój "+name+" z łóżkami: \n";
-        for (Bed bed : beds) 
-            {
-               output+=bed+"\n";
-            }
-        for (Equipment equipment : equipments) 
-            {
-               output+=equipment+"\n";
-            }
-        return output;
+        return name;
     }
 
     public void addBed(Bed bed) {
@@ -43,4 +34,14 @@ public class Room extends HospitalEntity{
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+    
+    public List<Bed> getBeds()
+    {
+        return beds;
+    }
+
+    public void setBeds(List<Bed> beds) {
+        this.beds = beds;
+    }
+
 }

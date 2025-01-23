@@ -23,18 +23,18 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="addPatientButton" mnemonicParsing="false" onAction="#runAddingPatients" prefHeight="66.0" prefWidth="200.0" text="Dopisz pacjenta" />
-                        <Button fx:id="receiptButton" mnemonicParsing="false" onAction="#runAddingPrescription" prefHeight="66.0" prefWidth="200.0" text="Wypisz receptę" />
-                        <Button fx:id="staffButton" mnemonicParsing="false" onAction="#runStaffManagement" prefHeight="66.0" prefWidth="200.0" text="Dodaj pracownika" />
-                        <Button fx:id="medicalHistoryButton" mnemonicParsing="false" onAction="#runMedicalHistory" prefHeight="66.0" prefWidth="200.0" text="Zobacz Historię Pacjenta" />
+                        <Button fx:id="addPatientButton" mnemonicParsing="false" onAction="#runAddingPatients" prefHeight="66.0" prefWidth="250.0" text="Dopisz pacjenta" />
+                        <Button fx:id="receiptButton" mnemonicParsing="false" onAction="#runAddingPrescription" prefHeight="66.0" prefWidth="250.0" text="Wypisz receptę" />
+                        <Button fx:id="staffButton" mnemonicParsing="false" onAction="#runStaffManagement" prefHeight="66.0" prefWidth="250.0" text="Dopisz pracownika" />
+                        <Button fx:id="medicalHistoryButton" mnemonicParsing="false" onAction="#runMedicalHistory" prefHeight="66.0" prefWidth="250.0" text="Zmień Dane/Wypisz Pacjenta" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="visitButton" mnemonicParsing="false" onAction="#runVisits" prefHeight="66.0" prefWidth="200.0" text="Umów wizytę" />
-                        <Button fx:id="registerButton" mnemonicParsing="false" onAction="#runRegisteringPatient" prefHeight="66.0" prefWidth="200.0" text="Zarejestruj pacjenta" />
-                        <Button fx:id="PrescriptionButton" mnemonicParsing="false" onAction="#runPrescriptions" prefHeight="66.0" prefWidth="200.0" text="Sprawdź recepty pacjenta" />
-                        <Button mnemonicParsing="false" onAction="#runAppointmentsOnToday" prefHeight="66.0" prefWidth="200.0" text="Wizyty na dziś" />
+                        <Button fx:id="visitButton" mnemonicParsing="false" onAction="#runVisits" prefHeight="66.0" prefWidth="250.0" text="Umów wizytę" />
+                        <Button fx:id="registerButton" mnemonicParsing="false" onAction="#runRegisteringPatient" prefHeight="66.0" prefWidth="250.0" text="Zarejestruj pacjenta w szpitalu" />
+                        <Button fx:id="PrescriptionButton" mnemonicParsing="false" onAction="#runPrescriptions" prefHeight="66.0" prefWidth="250.0" text="Sprawdź recepty pacjenta" />
+                        <Button mnemonicParsing="false" onAction="#runAppointmentsOnToday" prefHeight="66.0" prefWidth="250.0" text="Wizyty na dziś" />
                      </children>
                   </VBox>
                </children>

@@ -10,7 +10,6 @@ public class Medicament extends HospitalEntity{
     {
         super(id, name);
         this.typeOfMedicament =typeOfMedicament;
-        App.listOfObjects.add(this);
     }
 
     public void setTypeOfMedicament(TypeOfMedicament typeOfMedicament) {

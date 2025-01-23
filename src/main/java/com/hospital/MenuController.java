@@ -2,6 +2,9 @@ package com.hospital;
 
 import com.hospital.Appointments.AppointmentManager;
 import com.hospital.Medicaments_and_Equipment.Medicament;
+import com.hospital.Space_Availability.Bed;
+import com.hospital.Space_Availability.Department;
+import com.hospital.Space_Availability.Room;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
@@ -26,6 +29,9 @@ public class MenuController {
     private ObservableList<Staff> doctors;
     private ObservableList<Patient> patients;
     private ObservableList<Medicament> medicaments;
+    private ObservableList<Bed> beds;
+    private ObservableList<Department> departments;
+    private ObservableList<Room> rooms;
 
     @FXML
     private Button registerButton;
@@ -124,6 +130,8 @@ public class MenuController {
 
         medicaments = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Medicament.class);
 
+        departments = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Department.class);
+
     }
 
 
@@ -190,7 +198,18 @@ public class MenuController {
 
     @FXML
     public void runMedicalHistory() {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PatientHistoryViewWindow.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        PatientHistoryViewController patientHistoryViewController = fxmlLoader.getController();
+        patientHistoryViewController.setMainController(mainController);
+        prepareDate();
+        patientHistoryViewController.setData(staff,patients);
     }
 
     @FXML
@@ -237,7 +256,8 @@ public class MenuController {
         mainController.setScreen(anchorPane);
         RegisterPatientInHospitalController registerPatientInHospitalController = fxmlLoader.getController();
         registerPatientInHospitalController.setMainController(mainController);
-        registerPatientInHospitalController.setData(staff);
+        prepareDate();
+        registerPatientInHospitalController.setData(staff,patients,departments);
     }
 
     @FXML

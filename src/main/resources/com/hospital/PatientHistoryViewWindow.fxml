@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane minHeight="600.0" styleClass="root" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.PatientHistoryViewController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="208.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Pacjent:" />
+                        <ListView fx:id="patientList" prefHeight="183.0" prefWidth="455.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="298.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Historia pacjenta:" />
+                        <ListView fx:id="patientHistory" prefHeight="258.0" prefWidth="459.0" />
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="94.0" prefWidth="500.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="95.0" prefWidth="500.0">
+                           <children>
+                              <Button fx:id="editButton" mnemonicParsing="false" onAction="#editData" text="Edycja">
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="saveButton" disable="true" mnemonicParsing="false" onAction="#saveDetails" text="Zapisz zmiany">
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#backMenu" text="Menu" />
+                           </children>
+                           <padding>
+                              <Insets top="25.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </VBox>
+            <VBox fillWidth="false" prefHeight="600.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="120.0" prefWidth="490.0">
+                     <children>
+                        <Label text="Imię i nazwisko:" />
+                        <TextField fx:id="patientName" editable="false" prefHeight="40.0" prefWidth="400.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="120.0" prefWidth="490.0">
+                     <children>
+                        <Label text="Płeć:" />
+                        <ComboBox fx:id="patientGender" disable="true" prefHeight="52.0" prefWidth="260.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="120.0" prefWidth="490.0">
+                     <children>
+                        <Label text="Data urodzenia:" />
+                        <DatePicker fx:id="patientDate" disable="true" editable="false" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="120.0" prefWidth="490.0">
+                     <children>
+                        <Label text="PESEL:" />
+                        <TextField fx:id="patientPesel" editable="false" prefHeight="40.0" prefWidth="400.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="100.0" prefWidth="480.0">
+                     <children>
+                        <Label text="Stan pacjenta:" />
+                        <ComboBox fx:id="patientStatus" disable="true" prefHeight="52.0" prefWidth="260.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="111.0" prefWidth="480.0">
+                     <children>
+                        <Label text="Dodaj wpis do historii:" />
+                        <TextField fx:id="newHistoryEntry" editable="false" prefHeight="40.0" prefWidth="400.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

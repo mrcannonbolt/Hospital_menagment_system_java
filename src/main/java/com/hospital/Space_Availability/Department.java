@@ -17,11 +17,7 @@ public class Department extends HospitalEntity{
 
     @Override
     public String toString() {
-        String output="Oddział: "+name+"z pokojami: \n";
-        for (Room room : rooms) 
-            {
-               output+=room;
-            }
+        String output="Oddział: "+name;
         return output;
     }
 
@@ -33,4 +29,13 @@ public class Department extends HospitalEntity{
     {
        return; //aktualnie wyświetlanie graficzne sal odpuszczam, zobaczymy czy się uda zrobić je potem
     }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
 }

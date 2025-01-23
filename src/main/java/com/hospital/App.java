@@ -44,14 +44,11 @@ public class App extends Application{
         {
             Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
             Staff doctor1 = new Staff(2,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
-            Staff admin1 = new Staff(3,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
+            Staff admin1 = new Staff(3,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"","");
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
             loginSystem.registerStaff(admin1);
-            listOfObjects.add(doctor1);
-            listOfObjects.add(rescuer1);
-            listOfObjects.add(admin1);
             Medicament med1 = new Medicament(1, "Paracetamol", TypeOfMedicament.TABLETS);
             Medicament med2 = new Medicament(2, "Ibuprofen", TypeOfMedicament.CAPSULES);
             Medicament med3 = new Medicament(3, "Ambroksol", TypeOfMedicament.SYRUP);
@@ -74,9 +71,6 @@ public class App extends Application{
             Patient p2 = new Patient(2, "Mirek", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
             Patient p3 = new Patient(3, "Mariusz", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
 
-            listOfObjects.add(p1);
-            listOfObjects.add(p2);
-            listOfObjects.add(p3);
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             p1.addPrescription(prescription1);
             p1.getPrescriptions();

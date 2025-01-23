@@ -1,5 +1,6 @@
 package com.hospital;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +20,7 @@ public abstract class HospitalEntity{
     public HospitalEntity(int id, String name) {
         this.id = id;
         this.name = name;
+        App.listOfObjects.add(this);
     }
 
     public int getId() {
@@ -31,6 +33,18 @@ public abstract class HospitalEntity{
 
     public Date getDate() {
         return date;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     protected static <T> ObservableList<T> filterAndConvertToObservableList(List<?> list, Class<T> type) {

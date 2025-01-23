@@ -1,68 +1,64 @@
-/* Styl dla AnchorPane */
 .root {
-    -fx-background-color: #2b2b2b; /* ciemne tło */
+    -fx-background-color: #2b2b2b;
     -fx-padding: 20px;
 }
 
-/* Styl dla przycisków */
 .button {
-    -fx-background-color: linear-gradient(#424242, #616161); /* gradient szarości */
-    -fx-text-fill: white; /* białe napisy */
+    -fx-background-color: linear-gradient(#424242, #616161);
+    -fx-text-fill: white; 
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-background-radius: 5px; /* zaokrąglenie rogów */
+    -fx-background-radius: 5px; 
     -fx-padding: 10px 15px;
-    -fx-cursor: hand; /* wskaźnik zmienia się na "rękę" */
+    -fx-cursor: hand; 
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
 }
 
 .image-view {
-    -fx-background-size: cover; /* dopasowanie obrazu do rozmiaru kontenera */
-    -fx-background-position: center; /* wyśrodkowanie obrazu */
-    -fx-border-radius: 10px; /* zaokrąglenie rogów */
-    -fx-border-color: #ffffff; /* kolor obramowania */
-    -fx-border-width: 3px; /* grubość obramowania */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 4, 4); /* cień pod obrazkiem */
-    -fx-padding: 5px; /* przestrzeń między obrazem a obramowaniem */
+    -fx-background-size: cover; 
+    -fx-background-position: center; 
+    -fx-border-radius: 10px; 
+    -fx-border-color: #ffffff; 
+    -fx-border-width: 3px; 
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 4, 4); 
+    -fx-padding: 5px;
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#616161, #424242); /* jaśniejszy gradient przy najechaniu */
+    -fx-background-color: linear-gradient(#616161, #424242); 
 }
 
-/* Styl dla pól tekstowych */
 .text-field{
-    -fx-background-color: #616161; /* gradient szarości */
-    -fx-text-fill: white; /* białe napisy */
+    -fx-background-color: #616161;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-background-radius: 5px; /* zaokrąglenie rogów */
+    -fx-background-radius: 5px; 
     -fx-padding: 10px 15px;
     -fx-border-color: transparent;
     -fx-border-width: 0;
 }
 
 .text-area {
-    -fx-background-color: #616161; /* gradient szarości */
-    -fx-control-inner-background: #616161; /* tło wewnętrzne */
-    -fx-text-fill: white; /* kolor tekstu */
+    -fx-background-color: #616161; 
+    -fx-control-inner-background: #616161; 
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-background-radius: 5px; /* zaokrąglenie rogów */
-    -fx-padding: 0px; /* usuń dodatkowe wypełnienie */
+    -fx-background-radius: 5px; 
+    -fx-padding: 0px; 
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-background-insets: 0px; /* usuń marginesy wewnętrzne */
-    -fx-prompt-text-fill: #A9A9A9; /* kolor tekstu domyślnego */
+    -fx-background-insets: 0px;
+    -fx-prompt-text-fill: #A9A9A9; 
 }
 
 .text-field:focused{
-    -fx-border-color: #424242; /* Jaśniejszy obrys przy focusie */
+    -fx-border-color: #424242; 
 }
 
-/* Styl dla DatePicker */
 .date-picker {
-    -fx-background-color: linear-gradient(#424242, #616161); /* gradient szarości */
+    -fx-background-color: linear-gradient(#424242, #616161); 
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -72,105 +68,111 @@
 }
 
 .date-picker:focused {
-    -fx-border-color: #424242; /* Jaśniejszy obrys przy focusie */
+    -fx-border-color: #424242; 
 }
 
-/* Styl dla list */
 .list-view {
-    -fx-background-color: #424242; /* ciemnoszare tło */
-    -fx-cell-size: 40px; /* wyższe komórki */
+    -fx-background-color: #424242; 
+    -fx-cell-size: 40px; 
     -fx-border-color: #616161;
     -fx-border-radius: 5px;
 }
 
 .list-view .list-cell {
-    -fx-text-fill: #FFFFFF; /* biały tekst */
-    -fx-background-color: #616161; /* ciemnoszare tło */
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #616161; 
     -fx-font-size: 14px;
     -fx-padding: 10px;
 }
 
 .list-view .list-cell:hover {
-    -fx-background-color: #424242; /* jaśniejsze tło przy najechaniu */
+    -fx-background-color: #424242; 
 }
 
 .list-view .list-cell:selected {
-    -fx-background-color: #424242; /* Zielone tło dla wybranego elementu */
-    -fx-text-fill: white; /* Biały tekst */
+    -fx-background-color: #424242; 
+    -fx-text-fill: white; 
 }
 
-/* Styl dla ComboBox */
 .combo-box {
-    -fx-background-color: #424242; /* Ciemnoszare tło */
-    -fx-text-fill: white; /* Biały tekst */
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 5px;
-    -fx-border-color: #616161; /* Szary obrys */
-    -fx-border-radius: 5px; /* Zaokrąglone rogi */
-    -fx-background-radius: 5px; /* Zaokrąglone rogi */
+    -fx-border-color: #616161;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px; 
 }
 
-/* Styl dla rozwijanego menu */
 .combo-box-popup {
-    -fx-background-color: #424242; /* Ciemnoszare tło */
-    -fx-border-color: #616161; /* Szary obrys */
+    -fx-background-color: #424242; 
+    -fx-border-color: #616161; 
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
-/* Styl dla komórek wewnątrz rozwijanego menu */
 .combo-box .list-cell {
-    -fx-text-fill: #FFFFFF; /* Biały tekst */
+    -fx-text-fill: #FFFFFF; 
     -fx-background-color: #424242;
     -fx-font-size: 14px;
     -fx-padding: 10px;
 }
 
-/* Efekt przy najechaniu na komórkę */
 .combo-box .list-cell:hover {
-    -fx-background-color: #616161; /* Jaśniejsze tło */
+    -fx-background-color: #616161;
 }
 
-/* Styl wybranego elementu */
 .combo-box .list-cell:selected {
-    -fx-background-color: #424242; /* Zielone tło dla wybranego elementu */
-    -fx-text-fill: white; /* Biały tekst */
+    -fx-background-color: #424242; 
+    -fx-text-fill: white; 
 }
 
-/* Styl dla TableView */
 .table-view {
-    -fx-background-color: #424242; /* Ciemnoszare tło */
-    -fx-border-color: #616161; /* Szary obrys */
+    -fx-background-color: #424242; 
+    -fx-border-color: #616161; 
     -fx-border-radius: 5px;
 }
 
 .table-view .column-header {
-    -fx-background-color: #616161; /* Tło nagłówków */
-    -fx-text-fill: white; /* Biały tekst */
+    -fx-background-color: #616161;
+    -fx-text-fill: white; 
     -fx-font-weight: bold;
     -fx-font-size: 14px;
 }
 
 .table-view .cell {
-    -fx-text-fill: white; /* Biały tekst */
-    -fx-background-color: #424242; /* Ciemnoszare tło */
+    -fx-text-fill: white; 
+    -fx-background-color: #424242; 
     -fx-font-size: 14px;
-    -fx-border-color: #616161; /* Oddzielenie kolumn */
-    -fx-border-width: 0 1px 0 0; /* Prawy obrys */
+    -fx-border-color: #616161; 
+    -fx-border-width: 0 1px 0 0;
 }
 
 .table-view .cell:hover {
-    -fx-background-color: #616161; /* Jaśniejsze tło przy najechaniu */
+    -fx-background-color: #616161; 
 }
 
-.label{
+.label,.check-box{
     -fx-font-size: 16px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
-.check-box{
-    -fx-font-size: 16px;
+.date-picker-popup *{
+    -fx-background-color: #616161; 
+    -fx-text-fill: white; 
+}
+
+.date-cell:hover {
+    -fx-background-color: #424242;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
+}
+
+.date-cell:selected{
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
+}
+.date-cell {
+    -fx-background-color: #616161; 
+    -fx-text-fill: white; 
 }

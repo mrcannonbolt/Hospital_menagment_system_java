@@ -13,13 +13,19 @@ public class Bed extends HospitalEntity{
 
     }
 
+    public Boolean isFree()
+    {
+        if(currentPatient==null)return true;
+        return false;
+    }
+
     @Override
     public String toString() {
         if(currentPatient==null)
         {
             return name+": wolne"; 
         }
-        return name+": "+currentPatient;
+        return name+": "+": Zajęte Pacjent: "+currentPatient.getName();
     }
 
     public void assignPatient(Patient patient) {
@@ -27,12 +33,14 @@ public class Bed extends HospitalEntity{
             throw new IllegalStateException("Łóżko jest zajęte");
         }
         this.currentPatient = patient;
+        currentPatient.setAssignedBed(this);
     }
 
     public void releaseBed() {
-        if (currentPatient!=null) {
-            throw new IllegalStateException("Łóżko jest wolne");
+        if (currentPatient==null) {
+            throw new IllegalStateException("Łóżko jest puste");
         }
+        currentPatient.setAssignedBed(null);
         this.currentPatient = null;
     }
 }
