@@ -1,11 +1,8 @@
 package com.hospital;
 
-import java.util.List;
-
 import com.hospital.Space_Availability.Bed;
 import com.hospital.Space_Availability.Department;
 import com.hospital.Space_Availability.Room;
-import com.hospital.Staff_and_patients.Gender;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.PatientStatus;
 import com.hospital.Staff_and_patients.Staff;

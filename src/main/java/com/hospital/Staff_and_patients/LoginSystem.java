@@ -11,8 +11,13 @@ public class LoginSystem {
     private Map<String, Staff> staffAccounts = new HashMap<>();
 
     public void registerStaff(Staff staff) {
+        if (staffAccounts.containsKey(staff.getLogin())) {
+            staff = null;
+            throw new IllegalArgumentException("Login jest zajęty");
+        }
         staffAccounts.put(staff.getLogin(), staff);
     }
+    
 
     public Staff login(String loginAttempt,String password) 
     {

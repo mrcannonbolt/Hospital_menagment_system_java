@@ -123,22 +123,27 @@ public class StaffManagementController {
 
     @FXML
     public void addStaffAndRegister() {
-        String name = staffName.getText();
-        String pesel = staffPesel.getText();
-        Gender gender = staffGender.getValue();
-        LocalDate localDate = staffDate.getValue();
-        StaffPositions position = staffPosition.getValue();
-        String login = staffLogin.getText();
-        String password = staffPassword.getText();
-        if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || position == null || login.isEmpty() || password.isEmpty()) {
-            showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
-            return;
+        try{
+            String name = staffName.getText();
+            String pesel = staffPesel.getText();
+            Gender gender = staffGender.getValue();
+            LocalDate localDate = staffDate.getValue();
+            StaffPositions position = staffPosition.getValue();
+            String login = staffLogin.getText();
+            String password = staffPassword.getText();
+            if (name.isEmpty() || pesel.isEmpty() || gender == null || localDate == null || position == null || login.isEmpty() || password.isEmpty()) {
+                showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
+                return;
+            }
+            Staff newStaff = new Staff(idGenerator(),name,gender,pesel,localDate,position,login,password);
+            App.listOfObjects.add(newStaff);
+            LoginSystem loginSystem = LoginSystem.getInstance();
+            loginSystem.registerStaff(newStaff);
+            showAlert("Sukces","Pracownik dodany i zarejestrowany w systemie:\n" + newStaff, Alert.AlertType.INFORMATION);
         }
-        Staff newStaff = new Staff(idGenerator(),name,gender,pesel,localDate,position,login,password);
-        App.listOfObjects.add(newStaff);
-        LoginSystem loginSystem = LoginSystem.getInstance();
-        loginSystem.registerStaff(newStaff);
-        showAlert("Sukces","Pracownik dodany i zarejestrowany w systemie:\n" + newStaff, Alert.AlertType.INFORMATION);
+        catch(IllegalArgumentException e){
+            showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

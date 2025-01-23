@@ -5,12 +5,18 @@ import com.hospital.Staff_and_patients.Patient;
 
 public class Bed extends HospitalEntity{
 
-    private Patient currentPatient=null;
+    private Patient currentPatient;
 
     public Bed(int id,String name)
     {
         super(id,name);
+        currentPatient=null;
+    }
 
+    public Bed(int id,String name,Patient currentPatient)
+    {
+        super(id,name);
+        this.currentPatient=currentPatient;
     }
 
     public Boolean isFree()

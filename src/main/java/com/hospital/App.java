@@ -1,6 +1,5 @@
 package com.hospital;
 
-import com.hospital.Appointments.AppointmentManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,7 +7,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +42,7 @@ public class App extends Application{
         {
             Staff rescuer1 = new Staff(1,"Zbysiu",Gender.MAN,"62745428357",LocalDate.of(2002,7,23), StaffPositions.RESCUER,"qwerty123","qwerty123");
             Staff doctor1 = new Staff(2,"Dr. House",Gender.MAN,"62747357357", LocalDate.of(2000,4,23), StaffPositions.DOCTOR,"qwerty","qwerty");
-            Staff admin1 = new Staff(3,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"","");
+            Staff admin1 = new Staff(3,"ADMIN",Gender.MAN,"66666666666",LocalDate.of(1999,4,12),StaffPositions.IT_ADMIN,"qwerty1","qwerty1");
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(doctor1);
             loginSystem.registerStaff(rescuer1);
@@ -73,29 +71,28 @@ public class App extends Application{
 
             Prescription prescription1 = new Prescription(0, "precsription1", doctor1, medicamentMap);
             p1.addPrescription(prescription1);
-            p1.getPrescriptions();
-            AppointmentManager appointmentManager = AppointmentManager.getInstance();
-            appointmentManager.bookAppointment(doctor1,p1, LocalDateTime.of(2024,12,26,10,30),"Wizyta kontrolna");
-            appointmentManager.bookAppointment(doctor1,p1, LocalDateTime.of(2024,12,26,10,31),"Wizyta kontrolna");
-            appointmentManager.getAllAppointments();
             /////////////////////////////////// testy sale ///////////////////////////////////////////////
             Bed bed1= new Bed(1,"1");
             Bed bed2= new Bed(2,"2");
             Bed bed3= new Bed(3,"3");
+            Bed bed4= new Bed(4,"4");
+            Bed bed5= new Bed(5,"5");
 
             Room room1 = new Room(1, "101");
             Room room2 = new Room(2,"102");
+            Room room3 = new Room(3,"103");
             Department department1 = new Department(1, "Kardiologia");
+            Department department2 = new Department(1, "Chirurgia");
 
             department1.addRoom(room1);
             department1.addRoom(room2);
+            department2.addRoom(room3);
             room1.addBed(bed1);
             room1.addBed(bed2);
             room2.addBed(bed3);
+            room3.addBed(bed4);
+            room3.addBed(bed5);
             bed1.assignPatient(p1);
-
-            System.out.println("\n");
-
         }
         catch (IllegalArgumentException e)
         {

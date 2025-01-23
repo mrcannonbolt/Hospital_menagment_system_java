@@ -2,9 +2,7 @@ package com.hospital;
 
 import com.hospital.Appointments.AppointmentManager;
 import com.hospital.Medicaments_and_Equipment.Medicament;
-import com.hospital.Space_Availability.Bed;
 import com.hospital.Space_Availability.Department;
-import com.hospital.Space_Availability.Room;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 import com.hospital.Staff_and_patients.StaffPositions;
@@ -29,9 +27,7 @@ public class MenuController {
     private ObservableList<Staff> doctors;
     private ObservableList<Patient> patients;
     private ObservableList<Medicament> medicaments;
-    private ObservableList<Bed> beds;
     private ObservableList<Department> departments;
-    private ObservableList<Room> rooms;
 
     @FXML
     private Button registerButton;
