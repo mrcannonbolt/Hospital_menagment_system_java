@@ -7,15 +7,15 @@ public class Bed extends HospitalEntity{
 
     private Patient currentPatient;
 
-    public Bed(int id,String name)
+    public Bed(String name)
     {
-        super(id,name);
+        super(name);
         currentPatient=null;
     }
 
-    public Bed(int id,String name,Patient currentPatient)
+    public Bed(String name,Patient currentPatient)
     {
-        super(id,name);
+        super(name);
         this.currentPatient=currentPatient;
     }
 
@@ -29,9 +29,9 @@ public class Bed extends HospitalEntity{
     public String toString() {
         if(currentPatient==null)
         {
-            return name+": wolne"; 
+            return "ID:"+id+" Łóżko nr: "+name+": wolne"; 
         }
-        return name+": "+": Zajęte Pacjent: "+currentPatient.getName();
+        return "ID:"+id+" Łóżko Nr: "+name+": Zajęte Pacjent: "+currentPatient.getName();
     }
 
     public void assignPatient(Patient patient) {

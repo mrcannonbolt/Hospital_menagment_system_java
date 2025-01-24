@@ -3,12 +3,14 @@ package com.hospital.Medicaments_and_Equipment;
 import com.hospital.App;
 import com.hospital.HospitalEntity;
 
+import javafx.collections.FXCollections;
+
 public class Medicament extends HospitalEntity{
 
     private TypeOfMedicament typeOfMedicament;
-    public Medicament(int id,String name, TypeOfMedicament typeOfMedicament)
+    public Medicament(String name, TypeOfMedicament typeOfMedicament)
     {
-        super(id, name);
+        super(name);
         this.typeOfMedicament =typeOfMedicament;
     }
 
@@ -23,6 +25,6 @@ public class Medicament extends HospitalEntity{
     @Override
     public String toString()
     {
-        return name;
+        return "ID:"+id+" Lek: "+name;
     }
 }

@@ -76,13 +76,13 @@ public class AddPrescriptionController {
         prescriptionPatient.setItems(patients);
         prescriptionMedicaments.setItems(medicaments);
         medicamentCounter = 1;
-        prescription = new Prescription(0, "elo", this.staff, null);
+        prescription = new Prescription("elo", this.staff, null);
     }
 
     @FXML
     public void backMenu() {
         prescription.deletePickupCode(prescription.getPickupCode());
-        prescription = null;
+        prescription.removeObject(true);
         mainController.backToMenuScreen(staff);
     }
 
@@ -116,7 +116,7 @@ public class AddPrescriptionController {
 
     @FXML
     public void confirmPrescription(){
-        if (prescriptionPatient == null || tableData.isEmpty()) {
+        if (prescriptionPatient.getSelectionModel().getSelectedItem() == null || tableData.isEmpty()) {
             showAlert("Błąd","Proszę uzupełnić wszystkie pola.",Alert.AlertType.WARNING);
             return;
         }

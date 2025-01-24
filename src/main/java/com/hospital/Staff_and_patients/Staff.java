@@ -8,9 +8,9 @@ public class Staff extends Person {
     private String login;
     private String password;
 
-    public Staff(int id, String name, Gender gender, String pesel, LocalDate dateOfBirth, StaffPositions position, String login, String password)
+    public Staff(String name, Gender gender, String pesel, LocalDate dateOfBirth, StaffPositions position, String login, String password)
     {
-        super(id, name, gender, dateOfBirth, pesel);
+        super(name, gender, dateOfBirth, pesel);
         this.position = position;
         this.login = login;
         this.password = password;

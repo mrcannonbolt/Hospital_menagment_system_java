@@ -55,12 +55,6 @@ public class StaffManagementController {
     }
 
     @FXML
-    public int idGenerator() {
-        lastId+=1;
-        return lastId;
-    }
-
-    @FXML
     public void initialize() {
         staffPosition.getItems().addAll(StaffPositions.values());
         staffGender.getItems().addAll(Gender.values());
@@ -111,7 +105,7 @@ public class StaffManagementController {
                 return;
             }
             try {
-            Staff newStaff = new Staff(idGenerator(),name,gender,pesel,birthDate,position,login,password);
+            Staff newStaff = new Staff(name,gender,pesel,birthDate,position,login,password);
             App.listOfObjects.add(newStaff);
             showAlert("Sukces","Pracownik dodany:\n" + newStaff, Alert.AlertType.INFORMATION);
             } catch (IllegalArgumentException e) {
@@ -135,7 +129,7 @@ public class StaffManagementController {
                 showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
                 return;
             }
-            Staff newStaff = new Staff(idGenerator(),name,gender,pesel,localDate,position,login,password);
+            Staff newStaff = new Staff(name,gender,pesel,localDate,position,login,password);
             App.listOfObjects.add(newStaff);
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(newStaff);

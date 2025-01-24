@@ -12,20 +12,26 @@ import javafx.collections.ObservableList;
 public abstract class HospitalEntity{
 
     protected static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    static protected int counter = 1;
     protected int id;
     protected String name;
     protected Date date = new Date();
 
-    public HospitalEntity(int id, String name) {
-        this.id = id;
+    public HospitalEntity(String name) {
+        this.id = counter;
+        counter++;
         this.name = name;
         App.listOfObjects.add(this);
+    }
+    
+    public void removeObject(Boolean downCounter){
+        if(downCounter == true) counter=counter-1;
+        App.listOfObjects.remove(this);
     }
 
     public int getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }

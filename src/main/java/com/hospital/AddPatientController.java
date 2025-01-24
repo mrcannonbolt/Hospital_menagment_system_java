@@ -52,11 +52,6 @@ public class AddPatientController {
         mainController.backToMenuScreen(staff);
     }
 
-    public int idGenerator() {
-        lastId+=1;
-        return lastId;
-    }
-
     @FXML
     public void addPatient() {
         String name = patientName.getText();
@@ -69,7 +64,7 @@ public class AddPatientController {
             return;
         }
         try {
-            Patient newPatient = new Patient(idGenerator(), name, gender, birthDate, pesel, status);
+            Patient newPatient = new Patient(name, gender, birthDate, pesel, status);
             App.listOfObjects.add(newPatient);
             showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {

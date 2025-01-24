@@ -11,9 +11,9 @@ public class Person extends HospitalEntity {
     protected String pesel;
     protected LocalDate dateOfBirth;
 
-    public Person(int id,String name,Gender gender,LocalDate dateOfBirth,String pesel)
+    public Person(String name,Gender gender,LocalDate dateOfBirth,String pesel)
     {
-        super(id, name);
+        super(name);
         if (!isValidPesel(pesel)) {
             throw new IllegalArgumentException("Niepoprawny numer PESEL");
         }

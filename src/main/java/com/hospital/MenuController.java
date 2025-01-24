@@ -193,6 +193,22 @@ public class MenuController {
     }
 
     @FXML
+    public void listOfObjects()
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("ListOfObjects.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        mainController.setScreen(anchorPane);
+        ListOfObjectsController listOfObjectsController = fxmlLoader.getController();
+        listOfObjectsController.setMainController(mainController);
+        listOfObjectsController.initialize(staff);   
+    }
+
+    @FXML
     public void runMedicalHistory() {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PatientHistoryViewWindow.fxml"));
         AnchorPane anchorPane = null;

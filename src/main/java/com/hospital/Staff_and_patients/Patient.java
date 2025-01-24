@@ -17,9 +17,9 @@ public class Patient extends Person {
     private List<Prescription> prescriptions;
     private Bed assignedBed;
 
-    public Patient(int id, String name, Gender gender, LocalDate dateOfBirth, String pesel, PatientStatus patientStatus)
+    public Patient(String name, Gender gender, LocalDate dateOfBirth, String pesel, PatientStatus patientStatus)
     {
-        super(id, name, gender, dateOfBirth, pesel);
+        super(name, gender, dateOfBirth, pesel);
         this.patientStatus = patientStatus;
         this.medicalHistory = new ArrayList<>();
         this.prescriptions = new ArrayList<>();

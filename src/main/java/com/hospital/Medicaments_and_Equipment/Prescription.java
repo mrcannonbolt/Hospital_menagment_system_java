@@ -19,8 +19,8 @@ public class Prescription extends HospitalEntity {
     private Staff issuingDoctor;
     private Date expirationDate;
 
-    public Prescription(int id, String name, Staff issuingDoctor, Map<Medicament, Integer> medicaments) {
-        super(id, name);
+    public Prescription(String name, Staff issuingDoctor, Map<Medicament, Integer> medicaments) {
+        super(name);
         if(medicaments == null){
             this.medicaments = new HashMap<>();
         }
@@ -105,6 +105,6 @@ public class Prescription extends HospitalEntity {
 
     public String toString()
     {
-        return("Recepta wystawiona: " + DATE_FORMAT.format(date)+" Przez: "+ issuingDoctor.getName());
+        return("ID:"+id+" "+"Recepta wystawiona: " + DATE_FORMAT.format(date)+" Przez: "+ issuingDoctor.getName());
     }
 }

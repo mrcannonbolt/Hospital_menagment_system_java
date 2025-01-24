@@ -12,15 +12,15 @@ public class Room extends HospitalEntity{
     private List<Equipment> equipments;
     private int capacity;
 
-    public Room(int id,String name)
+    public Room(String name)
     {
-        super(id,name);
+        super(name);
         beds = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return name;
+        return "ID:"+id+" Sala nr: "+name+" Łóżka: "+beds.size();
     }
 
     public void addBed(Bed bed) {

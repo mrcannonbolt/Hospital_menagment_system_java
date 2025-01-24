@@ -9,15 +9,15 @@ public class Department extends HospitalEntity{
 
     private List<Room> rooms;
 
-    public Department(int id,String name)
+    public Department(String name)
     {
-        super(id,name);
+        super(name);
         rooms = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        String output="Oddział: "+name;
+        String output="ID:"+id+" Oddział: "+name;
         return output;
     }
 
