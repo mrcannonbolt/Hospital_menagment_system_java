@@ -2,6 +2,12 @@ package com.hospital.Staff_and_patients;
 
 import java.time.LocalDate;
 
+import com.hospital.App;
+import com.hospital.HospitalEntity;
+import com.hospital.Appointments.Appointment;
+
+import javafx.collections.ObservableList;
+
 public class Staff extends Person {
 
     private StaffPositions position;
@@ -47,5 +53,12 @@ public class Staff extends Person {
                 "   Data urodzenia: " + dateOfBirth + "\n" +
                 "PESEL: " + pesel +
                 "   Stanowisko: " + position + "\n";
+    }
+
+    public void removeObject(Boolean downCounter) {
+    ObservableList<Appointment>  appointments= HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Appointment.class);
+    for (Appointment appointment : appointments) appointment.removeObject(downCounter);
+    LoginSystem.getInstance().removeAccount(login);
+    super.removeObject(downCounter);
     }
 }

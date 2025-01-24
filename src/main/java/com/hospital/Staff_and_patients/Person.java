@@ -4,7 +4,7 @@ import com.hospital.HospitalEntity;
 
 import java.time.LocalDate;
 
-public class Person extends HospitalEntity {
+public abstract class Person extends HospitalEntity {
 
 
     protected Gender gender;

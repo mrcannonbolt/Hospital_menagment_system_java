@@ -34,6 +34,10 @@ public class LoginSystem {
     return null;
     }
 
+    public void removeAccount(String account){
+        staffAccounts.remove(account);
+    }
+
     public static LoginSystem getInstance() 
     {
             return instance;

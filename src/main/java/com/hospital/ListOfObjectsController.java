@@ -3,6 +3,7 @@ package com.hospital;
 import com.hospital.Staff_and_patients.Staff;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -42,18 +43,21 @@ public class ListOfObjectsController {
 
                     // "Remove" menu item
                     MenuItem removeItem = new MenuItem("Usuń");
-                    removeItem.setOnAction(event -> removeObject(item));
-
-                    contextMenu.getItems().add(removeItem);
-
-                    setContextMenu(contextMenu);
+                        removeItem.setOnAction(event -> removeObject(item));
+                        contextMenu.getItems().add(removeItem);
+                        setContextMenu(contextMenu);
                 }
             }
         });
     }
     public void removeObject(HospitalEntity item){
+        try{
         item.removeObject(false);
         listOfObjects.setItems(FXCollections.observableList(App.listOfObjects));
+        }
+        catch (IllegalStateException e) {
+            showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -61,4 +65,11 @@ public class ListOfObjectsController {
         mainController.backToMenuScreen(staff);
     }
 
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

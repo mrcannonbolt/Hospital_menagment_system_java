@@ -54,8 +54,8 @@ public class BookAppointmentController {
         try {
             LocalTime time = LocalTime.parse(timeText);
             LocalDateTime dateTime = LocalDateTime.of(date, time);
-
-            if (appointmentManager.bookAppointment(doctor, patient, dateTime, description)) {
+            if(dateTime.isBefore(LocalDateTime.now())) showAlert(Alert.AlertType.ERROR, "Data i godzina wizyty nie mogą być z przeszłości");
+            else if (appointmentManager.bookAppointment(doctor, patient, dateTime, description)) {
                 showAlert(Alert.AlertType.INFORMATION, "Wizyta została pomyślnie umówiona.");
             } else {
                 showAlert(Alert.AlertType.ERROR, "Nie udało się umówić wizyty. Termin zajęty.");

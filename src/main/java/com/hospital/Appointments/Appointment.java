@@ -1,18 +1,20 @@
 package com.hospital.Appointments;
 
-import com.hospital.App;
+import com.hospital.HospitalEntity;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 
 import java.time.LocalDateTime;
 
-public class Appointment {
+public class Appointment extends HospitalEntity{
     private Staff doctor;
     private Patient patient;
     private LocalDateTime dateTime;
     private String description;
 
-    public Appointment(Staff doctor, Patient patient, LocalDateTime dateTime, String description) {
+    public Appointment(String name,Staff doctor, Patient patient, LocalDateTime dateTime, String description) {
+        super(name);
+        this.name= name;
         this.doctor = doctor;
         this.patient = patient;
         this.dateTime = dateTime;
@@ -37,7 +39,8 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Wizyta:\n" +
+        return  "ID:"+id+"\n"+
+                "Wizyta:\n"+
                 "Lekarz: " + doctor.getName() + "\n" +
                 "Pacjent: " + patient.getName() + "\n" +
                 "Data i godzina: " + dateTime + "\n" +

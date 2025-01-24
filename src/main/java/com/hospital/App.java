@@ -70,6 +70,7 @@ public class App extends Application{
             Patient p3 = new Patient("Mariusz", Gender.MAN,LocalDate.now(),"12221323232", PatientStatus.IMPROVING_CONDITION);
 
             Prescription prescription1 = new Prescription("precsription1", doctor1, medicamentMap);
+            prescription1.addMedicament(med15, 20);
             p1.addPrescription(prescription1);
             /////////////////////////////////// testy sale ///////////////////////////////////////////////
             Bed bed1= new Bed("1");

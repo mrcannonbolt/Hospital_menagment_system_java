@@ -25,11 +25,6 @@ public class Department extends HospitalEntity{
         rooms.add(room);
     }
 
-    public void DisplayDepartmentPlan()
-    {
-       return; //aktualnie wyświetlanie graficzne sal odpuszczam, zobaczymy czy się uda zrobić je potem
-    }
-
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
@@ -38,4 +33,12 @@ public class Department extends HospitalEntity{
         return rooms;
     }
 
+    @Override
+    public void removeObject(Boolean downCounter) {
+    for (Room room : rooms) {
+        room.removeObject(downCounter);
+    }
+
+    super.removeObject(downCounter);
+}
 }

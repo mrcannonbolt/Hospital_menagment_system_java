@@ -72,8 +72,9 @@ public class PrescriptionController {
     }
     }
 
+
     public void setPrescriptionList(Patient patient) {
-        this.prescriptionList.setItems(patient.getPrescriptions());
+        ObservableList<Prescription> prescriptions = patient.getPrescriptions();
     }
 
     public void setMainController(MainController mainController) {

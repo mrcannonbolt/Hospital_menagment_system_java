@@ -8,8 +8,13 @@ import java.util.List;
 import java.util.Calendar;
 import java.util.concurrent.ThreadLocalRandom;
 
+import com.hospital.App;
 import com.hospital.HospitalEntity;
+import com.hospital.PrescriptionController;
+import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
+
+import javafx.collections.ObservableList;
 
 public class Prescription extends HospitalEntity {
 
@@ -107,4 +112,16 @@ public class Prescription extends HospitalEntity {
     {
         return("ID:"+id+" "+"Recepta wystawiona: " + DATE_FORMAT.format(date)+" Przez: "+ issuingDoctor.getName());
     }
+
+    @Override
+public void removeObject(Boolean downCounter) {
+    ObservableList<Patient> patients = HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Patient.class);
+    for (Patient patient : patients) {
+        if (patient.getPrescriptions().contains(this)) {
+            Prescription p = this;
+            patient.getPrescriptions().remove(p);
+        }
+    }
+    super.removeObject(downCounter);
+}
 }

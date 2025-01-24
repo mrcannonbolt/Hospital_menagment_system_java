@@ -52,7 +52,7 @@ public abstract class HospitalEntity{
         this.date = date;
     }
 
-    protected static <T> ObservableList<T> filterAndConvertToObservableList(List<?> list, Class<T> type) {
+    public static <T> ObservableList<T> filterAndConvertToObservableList(List<?> list, Class<T> type) {
 
         List<T> filteredList = list.stream()
                                    .filter(type::isInstance)

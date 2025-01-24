@@ -1,6 +1,5 @@
 package com.hospital.Medicaments_and_Equipment;
 
-import com.hospital.App;
 import com.hospital.HospitalEntity;
 
 public class Equipment extends HospitalEntity{
@@ -20,10 +19,4 @@ public class Equipment extends HospitalEntity{
         return type;
     }
 
-    @Override
-    public void removeObject(Boolean downCounter){
-        super.removeObject(downCounter);
-        
-    }
-    
 }

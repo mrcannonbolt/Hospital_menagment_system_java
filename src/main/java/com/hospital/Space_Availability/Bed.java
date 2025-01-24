@@ -1,7 +1,11 @@
 package com.hospital.Space_Availability;
 
+import com.hospital.App;
 import com.hospital.HospitalEntity;
+import com.hospital.Medicaments_and_Equipment.Prescription;
 import com.hospital.Staff_and_patients.Patient;
+
+import javafx.collections.ObservableList;
 
 public class Bed extends HospitalEntity{
 
@@ -49,4 +53,10 @@ public class Bed extends HospitalEntity{
         currentPatient.setAssignedBed(null);
         this.currentPatient = null;
     }
+
+@Override
+    public void removeObject(Boolean downCounter) {
+        if(this.isFree())super.removeObject(downCounter);
+        else throw new IllegalStateException("Łóżko jest zajęte");
+}
 }
