@@ -65,7 +65,6 @@ public class AddPatientController {
         }
         try {
             Patient newPatient = new Patient(name, gender, birthDate, pesel, status);
-            App.listOfObjects.add(newPatient);
             showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {
             showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);

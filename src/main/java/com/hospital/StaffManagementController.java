@@ -106,7 +106,6 @@ public class StaffManagementController {
             }
             try {
             Staff newStaff = new Staff(name,gender,pesel,birthDate,position,login,password);
-            App.listOfObjects.add(newStaff);
             showAlert("Sukces","Pracownik dodany:\n" + newStaff, Alert.AlertType.INFORMATION);
             } catch (IllegalArgumentException e) {
                 // Obsługa błędów walidacji PESEL
@@ -130,7 +129,6 @@ public class StaffManagementController {
                 return;
             }
             Staff newStaff = new Staff(name,gender,pesel,localDate,position,login,password);
-            App.listOfObjects.add(newStaff);
             LoginSystem loginSystem = LoginSystem.getInstance();
             loginSystem.registerStaff(newStaff);
             showAlert("Sukces","Pracownik dodany i zarejestrowany w systemie:\n" + newStaff, Alert.AlertType.INFORMATION);
