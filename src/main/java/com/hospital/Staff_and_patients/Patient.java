@@ -73,7 +73,7 @@ public class Patient extends Person {
     public void removeObject(Boolean downCounter) {
     ObservableList<Appointment>  appointments= HospitalEntity.filterAndConvertToObservableList(App.listOfObjects, Appointment.class);
     for (Appointment appointment : appointments) appointment.removeObject(downCounter);
-    getAssignedBed().releaseBed();
+    if(downCounter==false)getAssignedBed().releaseBed();
     super.removeObject(downCounter);
     }
 }

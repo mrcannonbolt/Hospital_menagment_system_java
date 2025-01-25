@@ -3,12 +3,9 @@ package com.hospital.Space_Availability;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hospital.App;
 import com.hospital.HospitalEntity;
 import com.hospital.Medicaments_and_Equipment.Equipment;
-import com.hospital.Staff_and_patients.Patient;
 
-import javafx.collections.ObservableList;
 
 public class Room extends HospitalEntity{
 
@@ -46,6 +43,14 @@ public class Room extends HospitalEntity{
 
     public void setBeds(List<Bed> beds) {
         this.beds = beds;
+    }
+
+    public List<Equipment> getEquipments() {
+        return equipments;
+    }
+
+    public void setEquipments(List<Equipment> equipments) {
+        this.equipments = equipments;
     }
 
     @Override

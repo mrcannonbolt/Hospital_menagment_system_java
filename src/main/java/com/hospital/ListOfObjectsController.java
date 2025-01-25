@@ -94,8 +94,9 @@ public class ListOfObjectsController {
 
     public void removeObject(HospitalEntity item){
         try{
-        item.removeObject(false);
-        backMenu();
+            if(item!=staff) item.removeObject(false);
+            else showAlert("Błąd", "Nie możesz usunąć samego siebie", Alert.AlertType.ERROR);
+            backMenu();
         }
         catch (IllegalStateException e) {
             showAlert("Błąd", e.getMessage(), Alert.AlertType.ERROR);

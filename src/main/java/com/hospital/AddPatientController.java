@@ -14,9 +14,7 @@ import javafx.scene.control.TextField;
 import java.time.LocalDate;
 
 public class AddPatientController {
-
-    private int lastId=3;
-
+    
     @FXML
     private MainController mainController;
 
@@ -63,7 +61,7 @@ public class AddPatientController {
             showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
             return;
         }
-        try {
+        else try {
             Patient newPatient = new Patient(name, gender, birthDate, pesel, status);
             showAlert("Sukces","Udało się dodać nowego pacjenta do bazy\n" + newPatient, Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {

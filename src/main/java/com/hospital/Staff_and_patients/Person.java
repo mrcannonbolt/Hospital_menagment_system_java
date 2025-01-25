@@ -15,9 +15,11 @@ public abstract class Person extends HospitalEntity {
     {
         super(name);
         if (!isValidPesel(pesel)) {
+            removeObject(true);
             throw new IllegalArgumentException("Niepoprawny numer PESEL");
         }
         if (!isValidDateOfBirth(dateOfBirth)) {
+            removeObject(true);
             throw new IllegalArgumentException("Data urodzenia nie może być z przyszłości");
         }
         this.gender = gender;

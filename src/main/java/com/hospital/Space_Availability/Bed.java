@@ -1,11 +1,8 @@
 package com.hospital.Space_Availability;
 
-import com.hospital.App;
 import com.hospital.HospitalEntity;
-import com.hospital.Medicaments_and_Equipment.Prescription;
 import com.hospital.Staff_and_patients.Patient;
 
-import javafx.collections.ObservableList;
 
 public class Bed extends HospitalEntity{
 

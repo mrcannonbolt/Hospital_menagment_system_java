@@ -8,8 +8,6 @@ import java.time.LocalDate;
 
 public class StaffManagementController {
 
-    private int lastId=3;
-
     @FXML
     private MainController mainController;
 
@@ -104,7 +102,7 @@ public class StaffManagementController {
                 showAlert("Błąd", "Wszystkie pola muszą być wypełnione.", Alert.AlertType.ERROR);
                 return;
             }
-            try {
+            else try {
             Staff newStaff = new Staff(name,gender,pesel,birthDate,position,login,password);
             showAlert("Sukces","Pracownik dodany:\n" + newStaff, Alert.AlertType.INFORMATION);
             } catch (IllegalArgumentException e) {

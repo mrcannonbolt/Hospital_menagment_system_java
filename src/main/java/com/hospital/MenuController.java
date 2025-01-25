@@ -47,7 +47,11 @@ public class MenuController {
     @FXML
     private Button medicalHistoryButton;
 
+    @FXML
+    private Button listOfObjectsButton;
+
     private static Staff staff;
+
 
     @FXML
     public void configureMenu(Staff staff) {
@@ -58,6 +62,7 @@ public class MenuController {
         visitButton.setDisable(true);
         receiptButton.setDisable(true);
         staffButton.setDisable(true);
+        listOfObjectsButton.setDisable(true);
         switch (staffPosition) {
             case NURSE:
                 addPatientButton.setDisable(false);
@@ -86,7 +91,6 @@ public class MenuController {
                 addPatientButton.setDisable(false);
                 registerButton.setDisable(false);
                 visitButton.setDisable(false);
-                receiptButton.setDisable(false);
                 staffButton.setDisable(false);
                 medicalHistoryButton.setDisable(false);
                 break;
@@ -97,6 +101,7 @@ public class MenuController {
                 receiptButton.setDisable(false);
                 staffButton.setDisable(false);
                 medicalHistoryButton.setDisable(false);
+                listOfObjectsButton.setDisable(false);
                 break;
             case HOSPITAL_DIRECTOR:
                 addPatientButton.setDisable(false);
@@ -105,6 +110,7 @@ public class MenuController {
                 receiptButton.setDisable(false);
                 staffButton.setDisable(false);
                 medicalHistoryButton.setDisable(false);
+                listOfObjectsButton.setDisable(false);
                 break;
             default:
                 System.out.println("ERROR!");

@@ -3,7 +3,6 @@ package com.hospital.Appointments;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 
-import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

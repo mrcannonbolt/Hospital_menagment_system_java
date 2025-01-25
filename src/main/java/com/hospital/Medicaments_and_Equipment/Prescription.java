@@ -10,7 +10,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.hospital.App;
 import com.hospital.HospitalEntity;
-import com.hospital.PrescriptionController;
 import com.hospital.Staff_and_patients.Patient;
 import com.hospital.Staff_and_patients.Staff;
 
